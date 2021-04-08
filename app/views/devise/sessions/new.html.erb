@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <% content_for :css do %>
+    <%= stylesheet_link_tag 'log_in.css' %>
+  <% end %>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Rubik:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="global-container">
+        <div id="container">
+          <div class="mobile-menu__cover"></div>
+          
+            <header class="header-menu">
+               <div class="header_left">
+                  <%=link_to root_path,class:"app-title" do%>
+                  <% end %>
+               </div>
+               <div class="header-right">
+                  <div class="header-link">
+                      <a href="#">sign up</a>
+                      <a href="#">log in</a>
+                  </div>
+                
+                  <button class="mobile-menu__btn">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                  </button>
+               </div>
+            </header>
+          <div class="top-wrapper">
+             <span class="form-title1">Log</span>
+             <span class="form-title2">in</span>          
+             <div class="login-form">
+                <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                    <div class="field-email">
+                      <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"email-form",placeholder:"email" %>
+                    </div> 
+                    <div class="field-password">
+                      <%= f.password_field :password, autocomplete: "current-password",placeholder:"password",class:"password-form" %>
+                    </div>
+
+                    <!--<% if devise_mapping.rememberable? %>
+                      <div class="field">
+                        <%= f.check_box :remember_me %>
+                        <%= f.label :remember_me %>
+                      </div>
+                    <% end %>-->
+
+                    <div class="actions">
+                      <%= f.label "log in" ,for:"form-submit",class:"submit-label" %>
+                      <%= f.submit "Log in",id:"form-submit", class:"submit-btn" %>
+                    </div>
+                 <% end %>
+              </div>
+              <div class="top-img"></div>
+            </div> 
+        </div>   
+        <div>
+            <nav class="mobile-menu">
+                <ul class="mobile-menu__main">
+                    <li class="mobile-menu__item">
+                        <a class="mobile-menu__link" href="#">
+                            <span class="main-title">aaaaa</span>
+                            <span class="sub-title">bbbbb</span>
+                        </a>
+                    </li>
+                    <li class="mobile-menu__item">
+                        <a class="mobile-menu__link" href="#">
+                            <span class="main-title">cccccc</span>
+                            <span class="sub-title">dddddd</span>
+                        </a>
+                    </li>
+                    <li class="mobile-menu__item">
+                        <a class="mobile-menu__link" href="#">
+                            <span class="main-title">eeeeee</span>
+                            <span class="sub-title">ffffff</span>
+                        </a>
+                    </li>
+                    <li class="mobile-menu__item">
+                      <a class="mobile-menu__link" href="#">
+                          <span class="main-title">eeeeee</span>
+                          <span class="sub-title">ffffff</span>
+                      </a>
+                  </li>
+                </ul>
+              </nav>
+        </div>
+   
+  </div>
+  <%= javascript_pack_tag 'main.js' %>
+</body>  
+
+</html>

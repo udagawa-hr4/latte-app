@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<body>
+  <div id="global-container">
+        <div id="container">
+          <div class="mobile-menu__cover"></div>
+          
+            <header class="header-menu">
+               <div class="header_left">
+                  <%=link_to root_path,class:"app-title" do%>
+                  <% end %>
+               </div>
+               <div class="header-right">
+                  <div class="header-link">
+                      <a href="#">sign up</a>
+                      <a href="#">log in</a>
+                  </div>
+                
+                  <button class="mobile-menu__btn">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                  </button>
+               </div>
+            </header>
+          <div class="top-wrapper">
+            <div>
+            <%= form_with  %>
+            </div>
+        　</div>
+            
+            
+             
+          
+        </div>   
+        <div>
+            <nav class="mobile-menu">
+                <ul class="mobile-menu__main">
+                    <li class="mobile-menu__item">
+                        <a class="mobile-menu__link" href="#">
+                            <span class="main-title">aaaaa</span>
+                            <span class="sub-title">bbbbb</span>
+                        </a>
+                    </li>
+                    <li class="mobile-menu__item">
+                        <a class="mobile-menu__link" href="#">
+                            <span class="main-title">cccccc</span>
+                            <span class="sub-title">dddddd</span>
+                        </a>
+                    </li>
+                    <li class="mobile-menu__item">
+                        <a class="mobile-menu__link" href="#">
+                            <span class="main-title">eeeeee</span>
+                            <span class="sub-title">ffffff</span>
+                        </a>
+                    </li>
+                    <li class="mobile-menu__item">
+                      <a class="mobile-menu__link" href="#">
+                          <span class="main-title">eeeeee</span>
+                          <span class="sub-title">ffffff</span>
+                      </a>
+                  </li>
+                </ul>
+              </nav>
+        </div>
+   
+  </div>
+  <%= javascript_pack_tag 'main.js' %>
+</body> 
+</body>
+</html>

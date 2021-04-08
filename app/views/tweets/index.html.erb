@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Latte-v</title>
+  <% content_for :css do %>
+    <%= stylesheet_link_tag 'index.css' %>
+  <% end %>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Rubik:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="global-container">
+        <div id="container">
+          <div class="mobile-menu__cover"></div>
+          
+            <header class="header-menu">
+               <div class="header_left">
+               <a class ="app-title" href="#"></a>
+               </div>
+               <div class="header-right">
+                  <div class="header-link">
+                      <a href="#">sign up</a>
+                      <%= link_to  new_user_session_path do %>
+                      <span>log in</span>
+                      <% end %>
+                  </div>
+                
+                  <button class="mobile-menu__btn">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                  </button>
+              </div>
+            </header>
+            <div class="top-wrapper">
+               <div class="top-title">
+                 <p class="main-title_top">From <br> Imagination <br> To <br> Creation</p>
+                 <p class="sub-title_top">想像から創造へ</p>
+               </div>
+                <div class="top-img">
+                
+                </div>
+            </div>
+            <div class ="about-us">
+                  <div class="us-img"></div>
+                <div class = us-title>
+                     <p class="us-top">About us</p>
+                    <div class = "us-text">
+                      <h1 class = "us-main">初めまして！</p>
+                      <p class = "us-sub">私たちは、ラテアートに魅了され<br>『もっと多くの人に知ってもらいたい』『レベルの高いラテアートに挑戦したい！』<br> そういった人達のお手伝いができればと思い、このアプリケーションを作りました。<br><br>みんなでもっとお客様の喜ぶラテアートを <br> そしてなによりみんなが上手くなれるように応援しています。</p>
+                    </div>
+                </div>
+            </div>
+              <div class = "best-tweet">
+                <div class = "best-text">
+                　<p class="best-title">Best Tweet</p>
+                  <p class = "best-sub">人気の投稿</p>
+                </div>
+              </div>
+              <div class="tweet-list">
+                <div class="list-text">
+                  <p class="list-title">Latest Tweet</p>
+                  <p class = "list-sub">最新の投稿</p>
+                </div>
+              </div>
+        </div>
+      <div>
+        <nav class="mobile-menu">
+            <ul class="mobile-menu__main">
+                <li class="mobile-menu__item">
+                    <a class="mobile-menu__link" href="#">
+                        <span class="main-title">aaaaa</span>
+                        <span class="sub-title">bbbbb</span>
+                    </a>
+                </li>
+                <li class="mobile-menu__item">
+                    <a class="mobile-menu__link" href="#">
+                        <span class="main-title">cccccc</span>
+                        <span class="sub-title">dddddd</span>
+                    </a>
+                </li>
+                <li class="mobile-menu__item">
+                    <a class="mobile-menu__link" href="#">
+                        <span class="main-title">eeeeee</span>
+                        <span class="sub-title">ffffff</span>
+                    </a>
+                </li>
+                <li class="mobile-menu__item">
+                  <a class="mobile-menu__link" href="#">
+                      <span class="main-title">eeeeee</span>
+                      <span class="sub-title">ffffff</span>
+                  </a>
+              </li>
+            </ul>
+          </nav>
+      </div>
+  </div>
+  <%= javascript_pack_tag 'main.js' %>
+</body>
+</html>
