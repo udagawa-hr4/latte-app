@@ -40,7 +40,7 @@
              <div class="login-form">
                 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
                     <div class="field-email">
-                      <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"email-form",placeholder:"email" %>
+                      <%= f.email_field :email, autofocus: "true", autocomplete: "off",class:"email-form",placeholder:"email" %>
                     </div> 
                     <div class="field-password">
                       <%= f.password_field :password, autocomplete: "current-password",placeholder:"password",class:"password-form" %>

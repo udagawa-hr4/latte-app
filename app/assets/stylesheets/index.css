@@ -11,14 +11,14 @@ body {
 
 #global-container {
   width: 100vw;
-  height: 100vh;
+  height: 3000px;
   background-color: #e2e2e2;
 }
 
 #container {
   position: relative;
   width: 100vw;
-  height: 100%;
+  height: 3000px;
   z-index: 2;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
@@ -245,7 +245,7 @@ body {
 #container .best-tweet {
   position: relative;
   width: 80%;
-  height: 500px;
+  height: 700px;
   top: 30vh;
   left: 10%;
   z-index: -1;
@@ -326,7 +326,7 @@ body {
 #container .tweet-list {
   position: relative;
   width: 80%;
-  height: 500px;
+  height: 700px;
   top: 40vh;
   left: 10%;
   z-index: -1;
@@ -352,7 +352,7 @@ body {
   top: 0;
   left: 0;
   background-color: darkgrey;
-  z-index: 0;
+  z-index: 1;
 }
 
 #container .tweet-list.active .list-text {
@@ -747,5 +747,13 @@ body {
     -webkit-transform: translateX(0);
             transform: translateX(0);
   }
+}
+
+.test-img video {
+  width: 200px;
+  height: 200px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  position: absolute;
 }
 /*# sourceMappingURL=index.css.map */

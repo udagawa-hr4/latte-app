@@ -11,13 +11,13 @@ body{
 }
 #global-container{
   width: 100vw;
-  height: 100vh;
+  height: 3000px;
   background-color: rgb(226, 226, 226);
 }
 #container {
     position: relative;
     width: 100vw;
-    height: 100%;
+    height: 3000px;
     z-index: 2;
     transition: all 0.5s;
     & .header-menu{
@@ -198,7 +198,7 @@ body{
     & .best-tweet{
         position: relative;
         width: 80%;
-        height: 500px;
+        height: 700px;
         top: 30vh;
         left: 10%;
         z-index: -1;
@@ -271,7 +271,7 @@ body{
     & .tweet-list{
         position: relative;
         width: 80%;
-        height: 500px;
+        height: 700px;
         top: 40vh;
         left: 10%;
         z-index: -1;
@@ -291,7 +291,7 @@ body{
                 top: 0;
                 left: 0;
                 background-color: darkgrey;
-                z-index: 0;
+                z-index: 1;
             }
             & .list-text{
                 position: absolute;
@@ -542,4 +542,12 @@ body{
         opacity: 1;
         transform: translateX(0);
     }
+}
+.test-img{
+    & video{
+    width:200px;
+    height: 200px;
+    object-fit: contain;
+    position: absolute;
+  }
 }
