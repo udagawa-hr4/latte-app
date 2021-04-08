@@ -22,8 +22,10 @@
                </div>
                <div class="header-right">
                   <div class="header-link">
-                      <a href="#">sign up</a>
-                      <%= link_to  new_user_session_path do %>
+                      <%= link_to  new_tweet_path do %>
+                      <span>log in</span>
+                      <% end %>
+                      <%= link_to  new_user_registration_path do %>
                       <span>log in</span>
                       <% end %>
                   </div>
@@ -64,6 +66,33 @@
                 <div class="list-text">
                   <p class="list-title">Latest Tweet</p>
                   <p class = "list-sub">最新の投稿</p>
+                  <div>
+                  <ul>
+                    <% @tweets.each do |tweet| %>
+                        <li class="fusen">
+                          <%= link_to root_path do%>
+                          <%= tweet.title %>
+                          <% end %>
+          
+                          
+                        <%# <%= image_tag(tweet.images[0], width:150,height:150) %>
+                        <div class="test-img">
+                            <% if  tweet.images %>
+                              <% unless tweet.images[0].content_type.include?('image/') %>
+                              <video src= "<%= rails_blob_path(tweet.images[0]) %>" type='video/mp4' controls></video>
+                            <% else %>
+                              <%= link_to tweet.images[0], "data-lightbox" => tweet.images[0] do %> 
+                              <%= image_tag tweet.images[0],class:"img-tag", height: '250', :style=>"width:300;"%> 
+                              <% end %>
+                            <% end %>
+                            <% end %>
+                        </div>
+          
+                            </li>
+                     <% end  %>
+                     </ul>
+                    
+                  </div>
                 </div>
               </div>
         </div>

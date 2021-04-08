@@ -5,6 +5,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <% content_for :css do %>
+    <%= stylesheet_link_tag 'index.css' %>
+  <% end %>
 </head>
 <body>
 <body>
@@ -31,8 +34,32 @@
                </div>
             </header>
           <div class="top-wrapper">
-            <div>
-            <%= form_with  %>
+            <div class ="form-post">
+              <%= form_with model: @tweet, class: "form_all" ,local: true do |f| %>
+                <div class = "form-title">
+                  <%= f.label :title,"Title",class:"title-label" %>
+                  <div class="fusen-all">
+                      <%= f.text_field :title ,class: "title-area" ,autocomplete:"off",placeholder:"20文字以内" %>
+                  </div> 
+                </div>
+                <div class = "form-text">
+                      <%= f.label :text,"Text",class:"text-label" %>
+                  <div class="fusen-all">
+                      <span class="fusen-left1"></span>
+                      <span class="fusen-left2"></span>
+                      <%= f.text_area :text, class:"text-area fusen",autocomplete:"off" %>
+                  </div>
+                </div>
+                <div class = "form-img">
+                  <%= f.label :text,"Upload data",class:"img-label",for:"image-field" %>
+                  <%= f.file_field :images,class:"img-area",id:"image-field", multiple: true %>
+                  <div id="file-name"></div>
+                </div>
+                <div class = "form-submit">
+                  <%= f.label "Tweet",for:"submit-btn",class:"btn-label" %> 
+                  <%= f.submit class:"submit-area",id:"submit-btn" %>
+                </div>
+              <% end %>
             </div>
         　</div>
             
