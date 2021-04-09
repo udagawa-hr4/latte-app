@@ -14,6 +14,12 @@ class TweetsController < ApplicationController
       render :new
     end
   end
+  def search
+    @tweets = Tweet.search(params[:search]).includes(:user).order("tweets.created_at DESC").paginate(page: params[:page], per_page: 9)
+  end
+  def list
+    @tweets = Tweet.includes(:user).order("created_at DESC").paginate(page: params[:page], per_page: 9)
+  end
   private
   def tweet_params
     params.require(:tweet).permit( :title, :text, images:[]).merge(user_id: current_user.id)
