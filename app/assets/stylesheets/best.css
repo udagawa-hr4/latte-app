@@ -614,20 +614,33 @@ body {
   position: absolute;
   bottom: 1%;
   right: 3%;
-  font-size: 18px;
+  font-size: 14px;
   text-decoration: none;
   text-shadow: 2px 2px 2px #2b363a;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .list-ul .list-li .list-name .name-sub {
   color: white;
   font-size: 12px;
   font-weight: 600;
+  white-space: nowrap;
 }
 
 .list-ul .list-li .list-name a {
   color: aquamarine;
   text-decoration: none;
+  display: inline-block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 50%;
+  white-space: nowrap;
+  text-align: end;
 }
 
 .list-ul .list-li .list-time {
@@ -641,9 +654,10 @@ body {
 
 .list-ul .list-li .list-title {
   position: absolute;
-  bottom: 11%;
+  bottom: 14%;
   left: 15%;
-  font-size: 20px;
+  font-size: 18px;
+  width: 60%;
 }
 
 .list-ul .list-li .list-title a {
@@ -653,6 +667,10 @@ body {
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   display: inline-block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 100%;
+  white-space: nowrap;
 }
 
 .list-ul .list-li .list-title a:hover {

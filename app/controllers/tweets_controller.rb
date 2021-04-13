@@ -32,6 +32,19 @@ class TweetsController < ApplicationController
   def best
     @tweets = Tweet.includes(:user).order(impressions_count: 'DESC').paginate(page: params[:page], per_page: 9)
   end
+  def edit
+    @tweet = Tweet.find(params[:id])
+  end
+  def destroy
+    @tweet= Tweet.find(params[:id])
+    user = @tweet.user_id
+    if user_signed_in? && current_user.id == @post.user.id
+     @post.destroy
+     redirect_to controller: :users, action: :show, id: user
+    else
+     redirect_to root_path
+    end
+  end
   private
   def tweet_params
     params.require(:tweet).permit( :title, :text, images:[]).merge(user_id: current_user.id)
