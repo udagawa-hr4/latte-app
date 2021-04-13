@@ -6,13 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <% content_for :css do %>
-    <%= stylesheet_link_tag 'index.css' %>
+    <%= stylesheet_link_tag 'new.css' %>
   <% end %>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Oswald:wght@400;600&display=swap" rel="stylesheet">
 </head>
-<body>
+
 <body>
   <div id="global-container">
-        <div id="container">
+       <div id="container">
           <div class="mobile-menu__cover"></div>
           
             <header class="header-menu">
@@ -34,72 +36,75 @@
                </div>
             </header>
           <div class="top-wrapper">
+          　<span class="main-list-title">New Post</span>
+              <span class="sub-list-title">新規投稿</span>
             <div class ="form-post">
-              <%= form_with model: @tweet, class: "form_all" ,local: true do |f| %>
-                <div class = "form-title">
-                  <%= f.label :title,"Title",class:"title-label" %>
-                  <div class="fusen-all">
-                      <%= f.text_field :title ,class: "title-area" ,autocomplete:"off",placeholder:"20文字以内" %>
-                  </div> 
-                </div>
-                <div class = "form-text">
-                      <%= f.label :text,"Text",class:"text-label" %>
-                  <div class="fusen-all">
-                      <span class="fusen-left1"></span>
-                      <span class="fusen-left2"></span>
-                      <%= f.text_area :text, class:"text-area fusen",autocomplete:"off" %>
+                <%= form_with model: @tweet, class: "form_all" ,local: true do |f| %>
+                  <div class="left-form">
+                      <div class = "form-title">
+                            <%= f.label :title,class:"title-label" do%>
+                              <span class="main-title-label">Title</span>
+                              <span class="sub-title-label">タイトル</span>
+                            <% end %>
+                            <%= f.text_field :title ,class: "title-area" ,autocomplete:"off",placeholder:"20文字以内" %>
+                      </div>
+                      <div class = "form-img">
+                        <%= f.label :images,class:"img-label" do%>
+                          <span class="main-img-title">Images</span>
+                          <span class="sub-img-title">画像・動画 (Up to 4files)</span>
+                        <% end %>
+                        <%= f.file_field :images,class:"img-area", multiple: true %>
+                      </div>
+                      <div class = "form-submit">
+                        <%= f.label "投稿する",for:"submit-btn",class:"btn-label" %> 
+                        <%= f.submit class:"submit-area",id:"submit-btn" %>
+                      </div>
                   </div>
-                </div>
-                <div class = "form-img">
-                  <%= f.label :text,"Upload data",class:"img-label",for:"image-field" %>
-                  <%= f.file_field :images,class:"img-area",id:"image-field", multiple: true %>
-                  <div id="file-name"></div>
-                </div>
-                <div class = "form-submit">
-                  <%= f.label "Tweet",for:"submit-btn",class:"btn-label" %> 
-                  <%= f.submit class:"submit-area",id:"submit-btn" %>
-                </div>
-              <% end %>
+                  <div class = "form-right">
+                        <%= f.label :text,class:"text-label" do%>
+                         <span class="main-text-title">Text</span>
+                         <span class= "sub-text-title">テキスト</span>
+                         <% end %>
+                        <%= f.text_area :text, class:"text-area",autocomplete:"off" %>
+                  
+                  </div>
+                <% end %>
+              </div> 
+           </div>    
+      </div>     
+           <div>
+              <nav class="mobile-menu">
+                  <ul class="mobile-menu__main">
+                      <li class="mobile-menu__item">
+                    <%= link_to user_path(current_user.id), class:"link-dec" do%>
+                        <span class="main-title">My Page</span>
+                        <span class="sub-title">マイページ</span>
+                    <% end %>
+                </li>
+                <li class="mobile-menu__item">
+                     <%= link_to best_tweets_path, class:"link-dec" do%>
+                        <span class="main-title">BestTweet</span>
+                        <span class="sub-title">人気の投稿</span>
+                     <% end %>
+                </li>
+                <li class="mobile-menu__item">
+                    <%= link_to list_tweets_path, class:"link-dec" do%>
+                        <span class="main-title">Latest Tweet</span>
+                        <span class="sub-title">最新の投稿</span>
+                    <% end %>
+                </li>
+                <li class="mobile-menu__item">
+                    <%= link_to new_tweet_path, class:"link-dec" do%>
+                      <span class="main-title">New Post</span>
+                      <span class="sub-title">新規投稿</span>
+                    <% end %>
+              </li>
+                  </ul>
+                </nav>
             </div>
-        　</div>
-            
-            
-             
-          
-        </div>   
-        <div>
-            <nav class="mobile-menu">
-                <ul class="mobile-menu__main">
-                    <li class="mobile-menu__item">
-                        <a class="mobile-menu__link" href="#">
-                            <span class="main-title">aaaaa</span>
-                            <span class="sub-title">bbbbb</span>
-                        </a>
-                    </li>
-                    <li class="mobile-menu__item">
-                        <a class="mobile-menu__link" href="#">
-                            <span class="main-title">cccccc</span>
-                            <span class="sub-title">dddddd</span>
-                        </a>
-                    </li>
-                    <li class="mobile-menu__item">
-                        <a class="mobile-menu__link" href="#">
-                            <span class="main-title">eeeeee</span>
-                            <span class="sub-title">ffffff</span>
-                        </a>
-                    </li>
-                    <li class="mobile-menu__item">
-                      <a class="mobile-menu__link" href="#">
-                          <span class="main-title">eeeeee</span>
-                          <span class="sub-title">ffffff</span>
-                      </a>
-                  </li>
-                </ul>
-              </nav>
-        </div>
    
   </div>
   <%= javascript_pack_tag 'main.js' %>
 </body> 
-</body>
+
 </html>

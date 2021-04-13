@@ -6,11 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
    <% content_for :css do %>
-    <%= stylesheet_link_tag 'list.css' %>
+    <%= stylesheet_link_tag 'user_show.css' %>
   <% end %>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Rubik:wght@400;600&display=swap" rel="stylesheet">
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+ 
 </head>
 <body>
   <div id="global-container">
@@ -40,19 +41,23 @@
               </div>
             </header>
             <div class="top-wrapper">
-              <span class="main-list-title">Latest Tweet</span>
-              <span class="sub-list-title">最新の投稿</span>
-              <div class="search-form">
-                <%= form_with  url:search_tweets_path, class:"search-group",method: :get, local: true do |f| %>
-                <%= f.text_field  :search,type: "text", class:"search-field",placeholder: "キーワードを入力",autocomplete:"off" %>
-                <%= f.label "検索" ,for:"submit_btn",class:"btn_label" do%>
-                <i class="fas fa-search"></i>
-                <% end %>
-                
-                <%= f.submit 'Search',class:"search-btn",id:"submit_btn" %>
-                <% end %>
+              <span class="main-list-title">My Page</span>
+              <span class="sub-list-title">マイページ</span>
+              <div class="intro-area">
+                 <span class="main-intro-title">Introduction</span>
+                 <span class="sub-intro-title">自己紹介</span>
+                 <div class="intro-text-area">
+                    <% if @user.profile.present? && @user.profile.introduction != nil && @user.profile.introduction !=""  %>
+                        <%= safe_join(@user.introduction.split("\n"),tag(:br)) %>
+                    <% else %>
+                        <p class="intro-def">自己紹介</p>
+                    <% end %>
+                 </div>
               </div>
-               <ul class="list-ul">
+              <div class="tweet-area">
+                  <span class="main-tweet-title">Tweets List</span>
+                  <span class="sub-tweet-title">投稿一覧</span>
+                <ul class="list-ul">
                     <% @tweets.each do |tweet| %>
                        <li class="list-li">
                         <div class="test-img">
@@ -67,30 +72,23 @@
                             <% end %>
                          
                         </div>
-                            <div class="list-name">
-                              <%= link_to user_path(tweet.user_id) do%>
-                              <%= tweet.user.name %>
-                              <% end %>
-                              <span class="name-sub">さんの投稿</span> 
-                            </div>
-                            <div class="list-time">
-                               <%= tweet.created_at.strftime('%C%y-%m-%d ') %>
-                            </div>
-                            <div class="list-title">
-                              <%= link_to tweet_path(tweet.id) do%>
-                              <%= tweet.title %>
-                              <% end %>
-                            </div>
+                        <div class="list-title">
+                          <%= link_to tweet_path(tweet.id) do%>
+                          <%= tweet.title %>
+                          <% end %>
+                        </div>
+                        
+                        <div class="list-time">
+                            <%= tweet.created_at.strftime('%C%y-%m-%d ') %>
+                        </div>
           
-                          
-                        <%# <%= image_tag(tweet.images[0], width:150,height:150) %>
-          
-                     <% end  %>
                       </li>
-                 <%= will_paginate @tweets, :previous_label => ' &lt Back', :next_label => 'Next &gt' %>
-                 </ul>
-            </div>
-        </div>
+                     <% end  %>
+                  <%= will_paginate @tweets, :previous_label => ' &lt Back', :next_label => 'Next &gt' %>
+                </ul>
+              </div>
+          </div>
+        </div>  
       <div>
         <nav class="mobile-menu">
             <ul class="mobile-menu__main">
@@ -123,6 +121,5 @@
       </div>
   </div>
   <%= javascript_pack_tag 'main.js' %>
-
 </body>
 </html>
