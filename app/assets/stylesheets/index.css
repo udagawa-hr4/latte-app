@@ -433,22 +433,28 @@ body {
   position: absolute;
   bottom: 4%;
   left: 15%;
-  font-size: 20px;
+  font-size: 16px;
   font-family: Oswald;
+  width: 50%;
+  font-weight: 600;
 }
 
 #container .best-tweet.active .list-ul .list-li .li-all .list-title a {
   text-decoration: none;
-  color: #fdfdfd;
+  color: #b8fc6a;
   text-shadow: 2px 2px 2px #445055;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   display: inline-block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 100%;
+  white-space: nowrap;
 }
 
 #container .best-tweet.active .list-ul .list-li .li-all .list-title a:hover {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
   text-shadow: 0px 0px 20px #ebc003;
 }
 
@@ -456,10 +462,17 @@ body {
   position: absolute;
   bottom: -10%;
   right: 3%;
-  font-size: 18px;
+  font-size: 14px;
   text-decoration: none;
   text-shadow: 2px 2px 2px #2b363a;
   font-family: Oswald;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 #container .best-tweet.active .list-ul .list-li .li-all .list-name .name-sub {
@@ -471,6 +484,12 @@ body {
 #container .best-tweet.active .list-ul .list-li .li-all .list-name a {
   color: aquamarine;
   text-decoration: none;
+  display: inline-block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 50%;
+  white-space: nowrap;
+  text-align: end;
 }
 
 #container .best-tweet.active .list-ul .list-li .li-all .list-time {
@@ -703,35 +722,49 @@ body {
   position: absolute;
   bottom: 13%;
   left: 15%;
-  font-size: 20px;
+  font-size: 16px;
   font-family: Oswald;
+  width: 50%;
+  font-weight: 600;
 }
 
 #container .tweet-list.active .list-ul .list-li .list-title a {
   text-decoration: none;
-  color: #fdfdfd;
+  color: #b8fc6a;
   text-shadow: 2px 2px 2px #445055;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   display: inline-block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 100%;
+  white-space: nowrap;
 }
 
 #container .tweet-list.active .list-ul .list-li .list-title a:hover {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
-  text-shadow: 0px 0px 20px #0c0c0c;
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  text-shadow: 0px 0px 30px #4bec19;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
+  text-overflow: ellipsis;
 }
 
 #container .tweet-list.active .list-ul .list-li .list-name {
   position: absolute;
   bottom: 1%;
   right: 3%;
-  font-size: 18px;
+  font-size: 14px;
   text-decoration: none;
   text-shadow: 2px 2px 2px #2b363a;
   font-family: Oswald;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 #container .tweet-list.active .list-ul .list-li .list-name .name-sub {
@@ -743,6 +776,12 @@ body {
 #container .tweet-list.active .list-ul .list-li .list-name a {
   color: aquamarine;
   text-decoration: none;
+  display: inline-block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 50%;
+  white-space: nowrap;
+  text-align: end;
 }
 
 #container .tweet-list.active .list-ul .list-li .list-time {
@@ -988,6 +1027,10 @@ body {
   margin-bottom: 3%;
 }
 
+.link-dec {
+  text-decoration: none;
+}
+
 @-webkit-keyframes kf-slide {
   50% {
     -webkit-transform: translateX(0);
@@ -1158,9 +1201,5 @@ body {
     -webkit-transform: translateX(0);
             transform: translateX(0);
   }
-}
-
-.link-dec {
-  text-decoration: none;
 }
 /*# sourceMappingURL=index.css.map */

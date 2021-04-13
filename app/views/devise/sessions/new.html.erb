@@ -75,6 +75,13 @@
                               <span class="sub-title">マイページ</span>
                           <% end %>
                           </li>
+                        <% else %>
+                          <li class="mobile-menu__item">
+                          <%= link_to root_path, class:"link-dec" do%>
+                              <span class="main-title">Top Page</span>
+                              <span class="sub-title">トップページ</span>
+                          <% end %>
+                          </li>
                       <% end %>
                     <li class="mobile-menu__item">
                         <%= link_to best_tweets_path, class:"link-dec" do%>
@@ -88,12 +95,14 @@
                             <span class="sub-title">最新の投稿</span>
                         <% end %>
                     </li>
-                    <li class="mobile-menu__item">
-                        <%= link_to new_tweet_path, class:"link-dec" do%>
-                          <span class="main-title">New Post</span>
-                          <span class="sub-title">新規投稿</span>
-                        <% end %>
-                  </li>
+                    <% if user_signed_in?  %> 
+                      <li class="mobile-menu__item">
+                          <%= link_to new_tweet_path, class:"link-dec" do%>
+                            <span class="main-title">New Post</span>
+                            <span class="sub-title">新規投稿</span>
+                          <% end %>
+                      </li>
+                    <% end %>
                 </ul>
               </nav>
            </div>

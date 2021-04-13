@@ -437,6 +437,7 @@ li {
   transition: transform 0.3s, opacity 0.2s;
   transition: transform 0.3s, opacity 0.2s, -webkit-transform 0.3s;
   opacity: 0;
+  margin-top: 13%;
 }
 
 .mobile-menu__link {
@@ -524,14 +525,21 @@ li {
 
 .main-title {
   font-weight: 600;
-  font-size: 25px;
+  font-size: 24px;
   color: white;
 }
 
 .sub-title {
   display: block;
-  font-size: 14px;
+  padding-top: 4%;
+  font-size: 12px;
   color: white;
+  font-weight: 600;
+  margin-bottom: 3%;
+}
+
+.link-dec {
+  text-decoration: none;
 }
 
 @-webkit-keyframes kf-slide {

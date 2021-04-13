@@ -92,7 +92,7 @@
                      </div>
                      <div class="comment-right">
                       <%=comment.created_at.strftime('%C%y-%m-%d ')  %>
-                      <div>
+                      <div class ="com-name">
                         <%= link_to user_path(comment.user_id) do%>
                           <%= comment.user.name %>
                         <% end %>
@@ -104,6 +104,7 @@
                    </ul>
                   
                   </div>
+                  <% if user_signed_in? %>
                   <div class="comment-form-area">
                         <%= form_with(model: [@tweet, @comment], local: true,class:"with-all") do |form| %>
                           <div class="text-form">
@@ -117,18 +118,29 @@
                           </div> 
                           <% end %>
                   </div>     
+                    
+                  <% end %>
               </div>
           </div>
         </div>  
       <div>
         <nav class="mobile-menu">
             <ul class="mobile-menu__main">
-               <li class="mobile-menu__item">
-                    <%= link_to user_path(current_user.id), class:"link-dec" do%>
-                        <span class="main-title">My Page</span>
-                        <span class="sub-title">マイページ</span>
-                    <% end %>
-                </li>
+               <% if user_signed_in? %>
+                  <li class="mobile-menu__item">
+                      <%= link_to user_path(current_user.id), class:"link-dec" do%>
+                          <span class="main-title">My Page</span>
+                          <span class="sub-title">マイページ</span>
+                      <% end %>
+                  </li>
+                 <% else %> 
+                 <li class="mobile-menu__item">
+                      <%= link_to root_path, class:"link-dec" do%>
+                          <span class="main-title">Top Page</span>
+                          <span class="sub-title">トップページ</span>
+                      <% end %>
+                  </li>
+                <% end %>
                 <li class="mobile-menu__item">
                      <%= link_to best_tweets_path, class:"link-dec" do%>
                         <span class="main-title">BestTweet</span>
@@ -141,12 +153,15 @@
                         <span class="sub-title">最新の投稿</span>
                     <% end %>
                 </li>
+                <% if user_signed_in? %>
+                  
                 <li class="mobile-menu__item">
                     <%= link_to new_tweet_path, class:"link-dec" do%>
                       <span class="main-title">New Post</span>
                       <span class="sub-title">新規投稿</span>
                     <% end %>
               </li>
+                <% end %>
             </ul>
           </nav>
       </div>

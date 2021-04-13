@@ -367,10 +367,21 @@ li {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  width: 50%;
 }
 
-#container .top-wrapper .comment-area .comment-text-area li .comment-right a {
+#container .top-wrapper .comment-area .comment-text-area li .comment-right .com-name {
+  width: 100%;
+}
+
+#container .top-wrapper .comment-area .comment-text-area li .comment-right .com-name a {
+  display: inline-block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 52%;
+  white-space: nowrap;
   color: #00a2ff;
+  text-align: end;
 }
 
 .mobile-menu {
@@ -449,6 +460,7 @@ li {
   transition: transform 0.3s, opacity 0.2s;
   transition: transform 0.3s, opacity 0.2s, -webkit-transform 0.3s;
   opacity: 0;
+  margin-top: 13%;
 }
 
 .mobile-menu__link {
@@ -536,14 +548,21 @@ li {
 
 .main-title {
   font-weight: 600;
-  font-size: 25px;
+  font-size: 24px;
   color: white;
 }
 
 .sub-title {
   display: block;
-  font-size: 14px;
+  padding-top: 4%;
+  font-size: 12px;
   color: white;
+  font-weight: 600;
+  margin-bottom: 3%;
+}
+
+.link-dec {
+  text-decoration: none;
 }
 
 @-webkit-keyframes kf-slide {
