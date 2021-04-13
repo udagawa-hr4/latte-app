@@ -85,7 +85,6 @@ body{
     
     
 }
-
 .mobile-menu {
     position: fixed;
     right: 0%;
@@ -405,18 +404,27 @@ body{
            position: absolute;
            bottom: 1%;
            right: 3%;
-           font-size: 18px;
+           font-size: 14px;
            text-decoration: none;
            text-shadow: 2px 2px 2px rgb(43, 54, 58);
+           display: flex;
+           justify-content: flex-end;
+           
            & .name-sub{
                color: white;
                font-size: 12px;
                font-weight: 600;
-               
+               white-space: nowrap;
            }
            & a{
                color: aquamarine;
                text-decoration: none;
+               display: inline-block;
+               text-overflow: ellipsis;
+                overflow: hidden;
+                width: 50%;
+                white-space: nowrap;
+                text-align: end;
            }
 
        }
@@ -430,18 +438,22 @@ body{
        }
        & .list-title{
            position: absolute;
-           bottom: 11%;
+           bottom: 14%;
            left: 15%;
-           font-size: 20px;
-           
+           font-size: 18px;
+           width: 60%;
            & a{
               text-decoration: none;
               color: rgb(253, 253, 253);
               text-shadow: 2px 2px 2px rgb(68, 80, 85);
               transition: all 0.3s;
               display: inline-block;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                width: 100%;
+                white-space: nowrap;
               &:hover{
-                  transform: scale(1.1);
+                  transform: scale(1.05);
                   text-shadow: 0px 0px 20px rgb(235, 192, 3);
               }
            }
