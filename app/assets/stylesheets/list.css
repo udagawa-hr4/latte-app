@@ -462,7 +462,7 @@ body {
   content: "";
   height: 3px;
   position: absolute;
-  top: 28%;
+  top: 20%;
   left: 36%;
   display: inline-block;
   z-index: 0;
@@ -585,7 +585,7 @@ body {
 .list-ul .list-li {
   position: relative;
   width: 400px;
-  height: 360px;
+  height: 370px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -604,7 +604,7 @@ body {
 
 .list-ul .list-li .list-name {
   position: absolute;
-  bottom: 0%;
+  bottom: 1%;
   right: 3%;
   font-size: 18px;
   text-decoration: none;

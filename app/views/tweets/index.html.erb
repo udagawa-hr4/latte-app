@@ -9,7 +9,7 @@
     <%= stylesheet_link_tag 'index.css' %>
   <% end %>
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Rubik:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Oswald:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
   <div id="global-container">
@@ -22,12 +22,21 @@
                </div>
                <div class="header-right">
                   <div class="header-link">
-                      <%= link_to  list_tweets_path do %>
-                      <span> in</span>
-                      <% end %>
-                      <%= link_to  new_user_registration_path do %>
-                      <span>log in</span>
-                      <% end %>
+                  <% if user_signed_in? %>
+                          <%= link_to destroy_user_session_path, method: :delete do %>
+                          <span>Log Out</span>
+                          <% end %>
+                          <%= link_to user_path(current_user)   do %>
+                          <span>My Page</span>
+                          <% end %>
+                    <% else %>
+                        <%= link_to   new_user_session_path do %>
+                          <span>Log In</span>
+                          <% end %>
+                          <%= link_to  new_user_registration_path do %>
+                          <span>Sign Up</span>
+                          <% end %>
+                   <% end %>   
                   </div>
                 
                   <button class="mobile-menu__btn">
@@ -61,67 +70,121 @@
                 　<p class="best-title">Best Tweet</p>
                   <p class = "best-sub">人気の投稿</p>
                 </div>
+                <div>
+                  <ul class = "list-ul">
+                    <% @tweet.each do |tweet| %>
+                        <li class="list-li">
+                          <div class="li-all">
+                            <div class="test-img">
+                                <% if  tweet.images %>
+                                  <% unless tweet.images[0].content_type.include?('image/') %>
+                                  <video src= "<%= rails_blob_path(tweet.images[0]) %>" type='video/mp4' controls disablepictureinpicture controlslist="nodownload"></video>
+                                <% else %>
+                                  <%= link_to tweet.images[0], "data-lightbox" => tweet.images[0] do %> 
+                                  <%= image_tag tweet.images[0],class:"img-tag", height: '250', :style=>"width:300;"%> 
+                                  <% end %>
+                                <% end %>
+                                <% end %>
+                            </div>
+                              <div class="list-name">
+                                <%= link_to user_path(tweet.user_id) do%>
+                                <%= tweet.user.name %>
+                                <% end %>
+                                <span class="name-sub">さんの投稿</span> 
+                              </div>
+                              <div class="list-time">
+                                <%= tweet.created_at.strftime('%C%y-%m-%d ') %>
+                              </div>
+                              <div class="list-title">
+                                <%= link_to tweet_path(tweet.id) do%>
+                                <%= tweet.title %>
+                                <% end %>
+                              </div>
+                          </div>
+                        </li>
+                     <% end  %>
+                    </ul>
+                  </div>
+                    <%= link_to best_tweets_path ,class:"more-btn" do%>
+                     <p class="more-label">もっと見る</p>
+                    <% end %>
+                    
               </div>
               <div class="tweet-list">
                 <div class="list-text">
                   <p class="list-title">Latest Tweet</p>
                   <p class = "list-sub">最新の投稿</p>
-                  <div>
-                  <ul>
+                </div>
+                  
+                  <ul class = "list-ul">
                     <% @tweets.each do |tweet| %>
-                        <li class="fusen">
-                          <%= link_to root_path do%>
-                          <%= tweet.title %>
-                          <% end %>
-          
-                          
-                        <%# <%= image_tag(tweet.images[0], width:150,height:150) %>
-                        <div class="test-img">
-                            <% if  tweet.images %>
-                              <% unless tweet.images[0].content_type.include?('image/') %>
-                              <video src= "<%= rails_blob_path(tweet.images[0]) %>" type='video/mp4' controls></video>
-                            <% else %>
-                              <%= link_to tweet.images[0], "data-lightbox" => tweet.images[0] do %> 
-                              <%= image_tag tweet.images[0],class:"img-tag", height: '250', :style=>"width:300;"%> 
-                              <% end %>
-                            <% end %>
-                            <% end %>
-                        </div>
-          
-                            </li>
+                      <li class="list-li">
+                                <div class="test-img">
+                                    <% if  tweet.images %>
+                                      <% unless tweet.images[0].content_type.include?('image/') %>
+                                      <video src= "<%= rails_blob_path(tweet.images[0]) %>" type='video/mp4' controls disablepictureinpicture controlslist="nodownload"></video>
+                                    <% else %>
+                                      <%= link_to tweet.images[0], "data-lightbox" => tweet.images[0] do %> 
+                                      <%= image_tag tweet.images[0],class:"img-tag", height: '250', :style=>"width:300;"%> 
+                                      <% end %>
+                                    <% end %>
+                                    <% end %>
+                                </div>
+                                <div class="list-name">
+                                    <%= link_to user_path(tweet.user_id) do%>
+                                    <%= tweet.user.name %>
+                                    <% end %>
+                                    <span class="name-sub">さんの投稿</span> 
+                                </div>
+                                <div class="list-time">
+                                  <%= tweet.created_at.strftime('%C%y-%m-%d ') %>
+                                </div>
+                                <div class="list-title">
+                                  <%= link_to tweet_path(tweet.id) do%>
+                                  <%= tweet.title %>
+                                  <% end %>
+                                </div>
+                            
+                        </li>
                      <% end  %>
                     </ul>
+                  
                     
-                  </div>
-                </div>
+                    <%= link_to list_tweets_path ,class:"more-btn" do%>
+                     <p class="more-label">もっと見る</p>
+                    <% end %>
+                 
+                    
               </div>
         </div>
       <div>
         <nav class="mobile-menu">
             <ul class="mobile-menu__main">
+               <% if user_signed_in? %>
+                  <li class="mobile-menu__item">
+                      <%= link_to user_path(current_user.id), class:"link-dec" do%>
+                          <span class="main-title">My Page</span>
+                          <span class="sub-title">マイページ</span>
+                      <% end %>
+                  </li>
+                <% end %>
                 <li class="mobile-menu__item">
-                    <a class="mobile-menu__link" href="#">
-                        <span class="main-title">aaaaa</span>
-                        <span class="sub-title">bbbbb</span>
-                    </a>
+                     <%= link_to best_tweets_path, class:"link-dec" do%>
+                        <span class="main-title">BestTweet</span>
+                        <span class="sub-title">人気の投稿</span>
+                     <% end %>
                 </li>
                 <li class="mobile-menu__item">
-                    <a class="mobile-menu__link" href="#">
-                        <span class="main-title">cccccc</span>
-                        <span class="sub-title">dddddd</span>
-                    </a>
+                    <%= link_to list_tweets_path, class:"link-dec" do%>
+                        <span class="main-title">Latest Tweet</span>
+                        <span class="sub-title">最新の投稿</span>
+                    <% end %>
                 </li>
                 <li class="mobile-menu__item">
-                    <a class="mobile-menu__link" href="#">
-                        <span class="main-title">eeeeee</span>
-                        <span class="sub-title">ffffff</span>
-                    </a>
-                </li>
-                <li class="mobile-menu__item">
-                  <a class="mobile-menu__link" href="#">
-                      <span class="main-title">eeeeee</span>
-                      <span class="sub-title">ffffff</span>
-                  </a>
+                    <%= link_to new_tweet_path, class:"link-dec" do%>
+                      <span class="main-title">New Post</span>
+                      <span class="sub-title">新規投稿</span>
+                    <% end %>
               </li>
             </ul>
           </nav>

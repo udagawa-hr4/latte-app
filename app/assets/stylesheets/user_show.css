@@ -1,18 +1,28 @@
+html {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: Oswald;
   margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
 }
 
 #global-container {
   width: 100vw;
-  height: 100vh;
+  height: 1700px;
   background-color: #e2e2e2;
 }
 
 #container {
   position: relative;
   width: 100vw;
-  height: 100%;
+  height: 1600px;
   z-index: 2;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
@@ -48,6 +58,7 @@ body {
 #container .header-menu .header_left .app-title {
   width: 100%;
   height: 100%;
+  color: white;
   background-image: url(/assets/1.jpg);
   background-size: 100% 100%;
   position: absolute;
@@ -87,188 +98,267 @@ body {
 
 #container .top-wrapper {
   width: 100%;
-  height: 80vh;
+  height: 100%;
   position: relative;
   top: 100px;
   left: 0;
-  z-index: -1;
+  z-index: -10;
 }
 
-#container .top-wrapper .form-title1 {
-  position: absolute;
-  top: 45%;
-  left: 30%;
-  font-size: 45px;
-  z-index: 1;
-  letter-spacing: 0.1em;
-  color: #fafbfc;
-}
-
-#container .top-wrapper .form-title2 {
-  position: absolute;
-  top: 45%;
-  left: 36%;
-  font-size: 45px;
-  z-index: 1;
-  letter-spacing: 0.1em;
-  color: #f5d001;
-}
-
-#container .top-wrapper .top-img {
+#container .top-wrapper .intro-area {
   position: relative;
-  background-size: cover;
-  width: 100%;
-  height: calc(100vh - 100px);
+  width: 90%;
+  height: 25%;
+  top: 8%;
+  left: 5%;
+}
+
+#container .top-wrapper .intro-area .main-intro-title {
+  position: absolute;
+  width: 50%;
+  height: 15%;
+  font-size: 40px;
+  font-weight: 600;
   top: 0%;
   left: 0%;
-  background-image: url(/assets/coffee-2564692_1920.jpg);
-  overflow: hidden;
-  z-index: 0;
 }
 
-#container .top-wrapper .top-img::before {
-  position: absolute;
+#container .top-wrapper .intro-area .main-intro-title::after {
   content: "";
-  top: -8px;
-  left: -8px;
-  right: -8px;
-  bottom: -8px;
-  width: 100%;
-  height: 100%;
-  background: inherit;
-  -webkit-filter: blur(8px);
-          filter: blur(8px);
-}
-
-#container .top-wrapper .login-form {
+  height: 3px;
   position: absolute;
-  top: 35%;
-  left: 45%;
-  z-index: 5;
-  width: 40%;
-  height: 60%;
-}
-
-#container .top-wrapper .login-form .new_user {
-  width: 100%;
-  height: 100%;
-}
-
-#container .top-wrapper .login-form .new_user .field-email {
-  width: 100%;
-  height: 15%;
-}
-
-#container .top-wrapper .login-form .new_user .field-email .email-form {
-  outline: none;
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  border-radius: 5px;
-  width: 70%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0);
-  font-size: 25px;
-  color: white;
-  text-indent: 0.3em;
-}
-
-#container .top-wrapper .login-form .new_user .field-email .email-form::-webkit-input-placeholder {
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 25px;
-  text-indent: 0.3em;
-}
-
-#container .top-wrapper .login-form .new_user .field-email .email-form:-ms-input-placeholder {
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 25px;
-  text-indent: 0.3em;
-}
-
-#container .top-wrapper .login-form .new_user .field-email .email-form::-ms-input-placeholder {
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 25px;
-  text-indent: 0.3em;
-}
-
-#container .top-wrapper .login-form .new_user .field-email .email-form::placeholder {
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 25px;
-  text-indent: 0.3em;
-}
-
-#container .top-wrapper .login-form .new_user .field-password {
-  margin-top: 3%;
-  width: 100%;
-  height: 15%;
-}
-
-#container .top-wrapper .login-form .new_user .field-password .password-form {
-  outline: none;
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  border-radius: 5px;
-  width: 70%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0);
-  font-size: 25px;
-  color: white;
-  text-indent: 0.3em;
-}
-
-#container .top-wrapper .login-form .new_user .field-password .password-form::-webkit-input-placeholder {
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 25px;
-  text-indent: 0.3em;
-}
-
-#container .top-wrapper .login-form .new_user .field-password .password-form:-ms-input-placeholder {
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 25px;
-  text-indent: 0.3em;
-}
-
-#container .top-wrapper .login-form .new_user .field-password .password-form::-ms-input-placeholder {
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 25px;
-  text-indent: 0.3em;
-}
-
-#container .top-wrapper .login-form .new_user .field-password .password-form::placeholder {
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 25px;
-  text-indent: 0.3em;
-}
-
-#container .top-wrapper .login-form .new_user .actions {
-  margin-top: 3%;
-  width: 100%;
-  height: 15%;
-}
-
-#container .top-wrapper .login-form .new_user .actions .submit-label {
-  width: 70%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.685);
+  top: 40%;
+  left: 32%;
   display: inline-block;
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  color: #a18d6c;
-  font-size: 25px;
+  z-index: 0;
+  background-color: black;
+  -webkit-animation: ke-before-border 2s both;
+          animation: ke-before-border 2s both;
+}
+
+#container .top-wrapper .intro-area .sub-intro-title {
+  position: absolute;
+  width: 50%;
+  height: 15%;
+  font-size: 20px;
+  font-weight: 600;
+  top: 12%;
+  left: 4%;
+}
+
+#container .top-wrapper .intro-area .intro-text-area {
+  position: absolute;
+  width: 90%;
+  height: 70%;
+  top: 28%;
+  left: 5%;
+  background-color: #00052b;
+  font-weight: 600;
+  text-shadow: 2px 2px 2px gray;
+  padding-top: 1%;
+  border: 3px solid black;
+  border-radius: 10px;
+  color: white;
+}
+
+#container .top-wrapper .intro-area .intro-text-area .intro-def {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  cursor: pointer;
 }
 
-#container .top-wrapper .login-form .new_user .actions .submit-label:hover {
-  background-color: rgba(255, 255, 255, 0.885);
+#container .top-wrapper .tweet-area {
+  position: relative;
+  top: 12%;
+  left: 5%;
+  width: 90%;
+  height: 58%;
 }
 
-#container .top-wrapper .login-form .new_user .actions .submit-btn {
-  display: none;
+#container .top-wrapper .tweet-area .main-tweet-title {
+  position: absolute;
+  width: 50%;
+  height: 15%;
+  font-size: 40px;
+  font-weight: 600;
+  top: 0;
+  left: 0;
+}
+
+#container .top-wrapper .tweet-area .main-tweet-title::after {
+  content: "";
+  height: 3px;
+  position: absolute;
+  top: 17%;
+  left: 29%;
+  display: inline-block;
+  z-index: 0;
+  background-color: black;
+  -webkit-animation: ke-before-border 2s both;
+          animation: ke-before-border 2s both;
+}
+
+#container .top-wrapper .tweet-area .sub-tweet-title {
+  position: absolute;
+  width: 50%;
+  height: 10%;
+  font-size: 20px;
+  font-weight: 600;
+  top: 6%;
+  left: 4%;
+}
+
+#container .top-wrapper .tweet-area .list-ul {
+  position: absolute;
+  top: 12%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  width: 90vw;
+  height: 800px;
+  left: 50%;
+  padding-top: 3%;
+  padding-left: 2%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  background-color: #00052b;
+}
+
+#container .top-wrapper .tweet-area .list-ul .list-li {
+  position: relative;
+  width: 295px;
+  height: 280px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 30px;
+  background-color: darkgray;
+  margin-bottom: 2%;
+  margin-right: 2%;
+}
+
+#container .top-wrapper .tweet-area .list-ul .list-li .list-time {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  font-size: 15px;
+  color: white;
+  text-shadow: 2px 2px 2px #2b363a;
+}
+
+#container .top-wrapper .tweet-area .list-ul .list-li .list-title {
+  position: absolute;
+  bottom: 5%;
+  left: 15%;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+#container .top-wrapper .tweet-area .list-ul .list-li .list-title a {
+  text-decoration: none;
+  color: white;
+  text-shadow: 2px 2px 1px #445055;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  display: inline-block;
+}
+
+#container .top-wrapper .tweet-area .list-ul .list-li .list-title a:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  text-decoration: underline;
+  -webkit-text-decoration-color: white;
+          text-decoration-color: white;
+  text-decoration-skip-ink: auto;
+}
+
+#container .top-wrapper .tweet-area .list-ul .list-li .test-img {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+  -o-object-fit: fill;
+     object-fit: fill;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#container .top-wrapper .tweet-area .list-ul .list-li .test-img video {
+  width: 250px;
+  height: 250px;
+  -o-object-fit: fill;
+     object-fit: fill;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+#container .top-wrapper .tweet-area .list-ul .list-li .test-img img {
+  width: 250px;
+  height: 250px;
+  -o-object-fit: fill;
+     object-fit: fill;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+#container .top-wrapper .tweet-area .list-ul .list-li .test-img img:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+#container .top-wrapper .tweet-area .list-ul .pagination {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 80%;
+  list-style: none;
+  font-size: 30px;
+  bottom: 1%;
+  left: 50%;
+  -webkit-transform: translateX(-52%);
+          transform: translateX(-52%);
+}
+
+#container .top-wrapper .tweet-area .list-ul .pagination a {
+  display: inline-block;
+  text-decoration: none;
+  color: silver;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+#container .top-wrapper .tweet-area .list-ul .pagination a:hover {
+  color: #5de006;
 }
 
 .mobile-menu {
@@ -276,14 +366,13 @@ body {
   right: 0%;
   top: 0%;
   width: 300px;
-  height: 100vh;
+  height: 100%;
   visibility: hidden;
   background-color: #00052b;
   -webkit-transform: translateX(100%);
           transform: translateX(100%);
   -webkit-transition: 0.5s;
   transition: 0.5s;
-  z-index: 10;
 }
 
 .mobile-menu__btn {
@@ -530,7 +619,7 @@ body {
     width: 0%;
   }
   100% {
-    width: 58%;
+    width: 15%;
   }
 }
 
@@ -539,7 +628,7 @@ body {
     width: 0%;
   }
   100% {
-    width: 58%;
+    width: 15%;
   }
 }
 
@@ -616,4 +705,41 @@ body {
             transform: translateX(0);
   }
 }
-/*# sourceMappingURL=log_in.css.map */
+
+.main-list-title {
+  position: absolute;
+  width: 50%;
+  height: 10%;
+  font-size: 50px;
+  top: 1%;
+  left: 2%;
+  display: inline-block;
+  font-weight: 600;
+  color: #ff5100;
+}
+
+.main-list-title::after {
+  content: "";
+  height: 3px;
+  position: absolute;
+  top: 18%;
+  left: 25%;
+  display: inline-block;
+  z-index: 0;
+  background-color: black;
+  -webkit-animation: ke-before-border 2s both;
+          animation: ke-before-border 2s both;
+}
+
+.sub-list-title {
+  position: absolute;
+  width: 50%;
+  height: 10%;
+  font-size: 20px;
+  top: 4.7%;
+  left: 4%;
+  display: inline-block;
+  font-weight: 600;
+  color: black;
+}
+/*# sourceMappingURL=user_show.css.map */

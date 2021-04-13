@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
    <% content_for :css do %>
-    <%= stylesheet_link_tag 'list.css' %>
+    <%= stylesheet_link_tag 'best.css' %>
   <% end %>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Rubik:wght@400;600&display=swap" rel="stylesheet">
@@ -40,8 +40,8 @@
               </div>
             </header>
             <div class="top-wrapper">
-              <span class="main-list-title">Latest Tweet</span>
-              <span class="sub-list-title">最新の投稿</span>
+              <span class="main-list-title">Best Tweet</span>
+              <span class="sub-list-title">人気の投稿</span>
               <div class="search-form">
                 <%= form_with  url:search_tweets_path, class:"search-group",method: :get, local: true do |f| %>
                 <%= f.text_field  :search,type: "text", class:"search-field",placeholder: "キーワードを入力",autocomplete:"off" %>
@@ -123,6 +123,6 @@
       </div>
   </div>
   <%= javascript_pack_tag 'main.js' %>
-
+  
 </body>
 </html>

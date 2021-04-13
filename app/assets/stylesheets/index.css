@@ -11,14 +11,15 @@ body {
 
 #global-container {
   width: 100vw;
-  height: 3000px;
-  background-color: #e2e2e2;
+  height: 3500px;
+  background-color: #a3a3a3;
+  overflow: hidden;
 }
 
 #container {
   position: relative;
   width: 100vw;
-  height: 3000px;
+  height: 3400px;
   z-index: 2;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
@@ -111,6 +112,7 @@ body {
   font-weight: 600;
   font-family: Rubik;
   z-index: 3;
+  text-shadow: 0px 0px 10px white;
 }
 
 #container .top-wrapper .top-title .main-title_top {
@@ -170,7 +172,7 @@ body {
   height: 100%;
   top: 0;
   left: 0;
-  background-color: darkgrey;
+  background-color: #00052b;
   z-index: 0;
 }
 
@@ -186,7 +188,7 @@ body {
 
 #container .about-us.active .us-title {
   position: absolute;
-  top: 5%;
+  top: 12%;
   left: 40%;
   width: 60%;
   height: 80%;
@@ -225,7 +227,7 @@ body {
 
 #container .about-us.active .us-title .us-text {
   position: absolute;
-  top: 20%;
+  top: 15%;
   left: 0%;
 }
 
@@ -237,15 +239,17 @@ body {
 }
 
 #container .about-us.active .us-title .us-text .us-sub {
+  margin-top: 5%;
   -webkit-animation: kf-us-title 1s 5.5s both;
           animation: kf-us-title 1s 5.5s both;
+  line-height: 1.8em;
   font-size: 17px;
 }
 
 #container .best-tweet {
   position: relative;
   width: 80%;
-  height: 700px;
+  height: 950px;
   top: 30vh;
   left: 10%;
   z-index: -1;
@@ -270,7 +274,7 @@ body {
   height: 100%;
   top: 0;
   left: 0;
-  background-color: darkgrey;
+  background-color: #00052b;
   z-index: 0;
 }
 
@@ -302,7 +306,7 @@ body {
   width: 50%;
   height: 3px;
   position: absolute;
-  top: 55%;
+  top: 45%;
   left: 105%;
   display: inline-block;
   z-index: 0;
@@ -314,7 +318,7 @@ body {
 #container .best-tweet.active .best-text .best-sub {
   position: absolute;
   font-size: 17px;
-  top: 110%;
+  top: 100%;
   left: 6.5%;
   margin: 0;
   line-height: 1em;
@@ -323,10 +327,221 @@ body {
           animation: kf-us-title 1s 3s both;
 }
 
+#container .best-tweet.active .list-ul {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 80vw;
+  top: 15%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  padding-left: 2%;
+  overflow: hidden;
+  -webkit-animation: kf-us-title 2s 3.5s both;
+          animation: kf-us-title 2s 3.5s both;
+}
+
+#container .best-tweet.active .list-ul .list-li {
+  position: relative;
+  width: 330px;
+  height: 300px;
+  padding-bottom: 3%;
+  background-color: #4a5252;
+  margin-bottom: 2%;
+  list-style-type: decimal;
+  font-size: 20px;
+  font-weight: 600;
+  color: blue;
+  font-family: Dela Gothic One;
+}
+
+#container .best-tweet.active .list-ul .list-li:nth-child(1) {
+  color: #b80303;
+}
+
+#container .best-tweet.active .list-ul .list-li:nth-child(2) {
+  color: #0ac00a;
+}
+
+#container .best-tweet.active .list-ul .list-li:nth-child(3) {
+  color: #aa7e05;
+}
+
+#container .best-tweet.active .list-ul .list-li .li-all {
+  position: absolute;
+  width: 330px;
+  height: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 2%;
+}
+
+#container .best-tweet.active .list-ul .list-li .li-all .test-img {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+
+#container .best-tweet.active .list-ul .list-li .li-all .test-img video {
+  width: 250px;
+  height: 250px;
+  -o-object-fit: fill;
+     object-fit: fill;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+#container .best-tweet.active .list-ul .list-li .li-all .test-img img {
+  width: 250px;
+  height: 250px;
+  -o-object-fit: fill;
+     object-fit: fill;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+#container .best-tweet.active .list-ul .list-li .li-all .test-img img:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+#container .best-tweet.active .list-ul .list-li .li-all .list-title {
+  position: absolute;
+  bottom: 4%;
+  left: 15%;
+  font-size: 20px;
+  font-family: Oswald;
+}
+
+#container .best-tweet.active .list-ul .list-li .li-all .list-title a {
+  text-decoration: none;
+  color: #fdfdfd;
+  text-shadow: 2px 2px 2px #445055;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  display: inline-block;
+}
+
+#container .best-tweet.active .list-ul .list-li .li-all .list-title a:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  text-shadow: 0px 0px 20px #ebc003;
+}
+
+#container .best-tweet.active .list-ul .list-li .li-all .list-name {
+  position: absolute;
+  bottom: -10%;
+  right: 3%;
+  font-size: 18px;
+  text-decoration: none;
+  text-shadow: 2px 2px 2px #2b363a;
+  font-family: Oswald;
+}
+
+#container .best-tweet.active .list-ul .list-li .li-all .list-name .name-sub {
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+#container .best-tweet.active .list-ul .list-li .li-all .list-name a {
+  color: aquamarine;
+  text-decoration: none;
+}
+
+#container .best-tweet.active .list-ul .list-li .li-all .list-time {
+  position: absolute;
+  bottom: 0%;
+  right: 5%;
+  font-size: 15px;
+  color: white;
+  text-shadow: 2px 2px 2px #2b363a;
+  font-family: Oswald;
+}
+
+#container .best-tweet.active .more-btn {
+  position: relative;
+  width: 10%;
+  height: 5%;
+  left: 85%;
+  top: 91%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: -1;
+  border: 2px solid black;
+  overflow: hidden;
+  -webkit-animation: kf-us-title 2s 3.5s both;
+          animation: kf-us-title 2s 3.5s both;
+}
+
+#container .best-tweet.active .more-btn:hover::before {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
+#container .best-tweet.active .more-btn:hover .more-label {
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+  color: white;
+}
+
+#container .best-tweet.active .more-btn::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  background-color: black;
+  z-index: -1;
+}
+
+#container .best-tweet.active .more-btn .more-label {
+  position: absolute;
+  color: black;
+  text-decoration: none;
+  font-weight: 600;
+}
+
 #container .tweet-list {
   position: relative;
   width: 80%;
-  height: 700px;
+  height: 950px;
   top: 40vh;
   left: 10%;
   z-index: -1;
@@ -351,7 +566,7 @@ body {
   height: 100%;
   top: 0;
   left: 0;
-  background-color: darkgrey;
+  background-color: #00052b;
   z-index: 1;
 }
 
@@ -383,7 +598,7 @@ body {
   width: 50%;
   height: 3px;
   position: absolute;
-  top: 55%;
+  top: 45%;
   left: -65%;
   display: inline-block;
   z-index: 0;
@@ -395,13 +610,204 @@ body {
 #container .tweet-list.active .list-text .list-sub {
   position: absolute;
   font-size: 17px;
-  top: 110%;
+  top: 100%;
   right: 12.5%;
   margin: 0;
   line-height: 1em;
   font-weight: 600;
   -webkit-animation: kf-us-title 1s 3s both;
           animation: kf-us-title 1s 3s both;
+}
+
+#container .tweet-list.active .list-ul {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 80vw;
+  top: 15%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  overflow: hidden;
+  -webkit-animation: kf-us-title 2s 3.5s both;
+          animation: kf-us-title 2s 3.5s both;
+}
+
+#container .tweet-list.active .list-ul .list-li {
+  position: relative;
+  width: 330px;
+  height: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #4a5252;
+  padding-bottom: 3.1%;
+  margin-bottom: 2%;
+}
+
+#container .tweet-list.active .list-ul .list-li .test-img {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+  -o-object-fit: fill;
+     object-fit: fill;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#container .tweet-list.active .list-ul .list-li .test-img video {
+  width: 250px;
+  height: 250px;
+  -o-object-fit: fill;
+     object-fit: fill;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+#container .tweet-list.active .list-ul .list-li .test-img img {
+  width: 300px;
+  height: 300px;
+  -o-object-fit: fill;
+     object-fit: fill;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+#container .tweet-list.active .list-ul .list-li .test-img img:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+#container .tweet-list.active .list-ul .list-li .list-title {
+  position: absolute;
+  bottom: 13%;
+  left: 15%;
+  font-size: 20px;
+  font-family: Oswald;
+}
+
+#container .tweet-list.active .list-ul .list-li .list-title a {
+  text-decoration: none;
+  color: #fdfdfd;
+  text-shadow: 2px 2px 2px #445055;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  display: inline-block;
+}
+
+#container .tweet-list.active .list-ul .list-li .list-title a:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  text-shadow: 0px 0px 20px #0c0c0c;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+#container .tweet-list.active .list-ul .list-li .list-name {
+  position: absolute;
+  bottom: 1%;
+  right: 3%;
+  font-size: 18px;
+  text-decoration: none;
+  text-shadow: 2px 2px 2px #2b363a;
+  font-family: Oswald;
+}
+
+#container .tweet-list.active .list-ul .list-li .list-name .name-sub {
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+#container .tweet-list.active .list-ul .list-li .list-name a {
+  color: aquamarine;
+  text-decoration: none;
+}
+
+#container .tweet-list.active .list-ul .list-li .list-time {
+  position: absolute;
+  bottom: 9%;
+  right: 5%;
+  font-size: 15px;
+  color: white;
+  text-shadow: 2px 2px 2px #2b363a;
+  font-family: Oswald;
+}
+
+#container .tweet-list.active .more-btn {
+  position: relative;
+  width: 10%;
+  height: 5%;
+  left: 85%;
+  top: 91%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: -1;
+  border: 2px solid black;
+  overflow: hidden;
+  -webkit-animation: kf-us-title 2s 3.5s both;
+          animation: kf-us-title 2s 3.5s both;
+}
+
+#container .tweet-list.active .more-btn:hover::before {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
+#container .tweet-list.active .more-btn:hover .more-label {
+  -webkit-transition: all 0.8s;
+  transition: all 0.8s;
+  color: white;
+}
+
+#container .tweet-list.active .more-btn::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  background-color: black;
+  z-index: -1;
+}
+
+#container .tweet-list.active .more-btn .more-label {
+  position: absolute;
+  color: black;
+  text-decoration: none;
+  font-weight: 600;
 }
 
 .mobile-menu {
@@ -467,6 +873,7 @@ body {
           perspective: 2000px;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
+  margin-top: 20%;
 }
 
 .mobile-menu__item {
@@ -480,6 +887,7 @@ body {
   transition: transform 0.3s, opacity 0.2s;
   transition: transform 0.3s, opacity 0.2s, -webkit-transform 0.3s;
   opacity: 0;
+  margin-top: 13%;
 }
 
 .mobile-menu__link {
@@ -567,14 +975,17 @@ body {
 
 .main-title {
   font-weight: 600;
-  font-size: 25px;
+  font-size: 24px;
   color: white;
 }
 
 .sub-title {
   display: block;
-  font-size: 14px;
+  padding-top: 4%;
+  font-size: 12px;
   color: white;
+  font-weight: 600;
+  margin-bottom: 3%;
 }
 
 @-webkit-keyframes kf-slide {
@@ -749,71 +1160,7 @@ body {
   }
 }
 
-.list-ul {
-  width: 90vw;
-  height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-}
-
-.list-ul .list-li {
-  width: 300px;
-  height: 30%;
-}
-
-.list-ul .list-li .test-img {
-  width: 300px;
-  height: 300px;
-  overflow: hidden;
-}
-
-.list-ul .list-li .test-img video {
-  width: 300px;
-  height: 300px;
-  -o-object-fit: fill;
-     object-fit: fill;
-  -webkit-transition: all 0.4s;
-  transition: all 0.4s;
-}
-
-.list-ul .list-li .test-img video:hover {
-  -webkit-transform: scale(0.9);
-          transform: scale(0.9);
-}
-
-.list-ul .list-li .test-img img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: fill;
-     object-fit: fill;
-  -webkit-transition: all 0.4s;
-  transition: all 0.4s;
-}
-
-.list-ul .list-li .test-img img:hover {
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
-}
-
-.test-img {
-  width: 300px;
-  height: 300px;
-}
-
-.test-img video {
-  width: 300px;
-  height: 300px;
-  -o-object-fit: fill;
-     object-fit: fill;
-}
-
-.test-img img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: fill;
-     object-fit: fill;
+.link-dec {
+  text-decoration: none;
 }
 /*# sourceMappingURL=index.css.map */

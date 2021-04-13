@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+   <% content_for :css do %>
+    <%= stylesheet_link_tag 'show.css' %>
+  <% end %>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Rubik:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+ 
+</head>
+<body>
+  <div id="global-container">
+        <div id="container">
+          <div class="mobile-menu__cover"></div>
+          
+            <header class="header-menu">
+               <div class="header_left">
+                 <%=link_to root_path,class:"app-title" do%>
+                  <% end %>
+               </div>
+               <div class="header-right">
+                  <div class="header-link">
+                      <%= link_to  new_tweet_path do %>
+                      <span>log in</span>
+                      <% end %>
+                      <%= link_to  new_user_registration_path do %>
+                      <span>log in</span>
+                      <% end %>
+                  </div>
+                
+                  <button class="mobile-menu__btn">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                  </button>
+              </div>
+            </header>
+            <div class="top-wrapper">
+              <span class="main-list-title">Details Page</span>
+              <span class="sub-list-title">詳細ページ</span>
+              
+              <span class="main-img-title">Images</span>
+              <span class="sub-img-title"> 写真・動画</span>
+                <ul class="img-ul">
+                  <% @tweet.images.each do |tweet| %>
+                    <li class="img-li">
+                      <% if  tweet %>
+                          <% unless tweet.content_type.include?('image/') %>
+                              <video src= "<%= rails_blob_path(tweet) %>" type='video/mp4' controls></video>
+                            <% else %>
+                              <%= link_to tweet, "data-lightbox" => tweet do %> 
+                              <%= image_tag tweet,class:"img-tag", height: '250', :style=>"width:300;"%> 
+                              <% end %>
+                          <% end %>
+                      <% end %>
+                    </li>
+                  <% end %>
+                </ul>
+              <span class="main-text-title">Post Text</span>
+              <span class="sub-text-title">テキスト</span>
+            <div class="text-area">
+              <div class = "user-title">
+                <%= @tweet.title %>
+              </div>
+              <div class = "user-text">
+                <%= safe_join(@tweet.text.split("\n"),tag(:br)) %>
+              </div>
+              <div class= "user-name">
+                <%= @tweet.created_at.strftime('%C%y-%m-%d ')%>
+                  <div>
+                    <%= link_to user_path(@tweet.user_id) ,class:"name-link" do%>
+                    <%= @tweet.user.name %>
+                    <% end %>
+                    <span>さんの投稿</span>
+                  </div>
+              </div>
+            </div>  
+              <span class = "main-comment-title">Comment</span>
+              <span class = "sub-comment-title">コメント</span>
+              <div class = "comment-area">
+                  <div class ="comment-text-area">
+                   <ul>
+                  　<% @comments.each do |comment| %>
+                     <li>
+                     <div>
+                     <%= safe_join(comment.text.split("\n"),tag(:br)) %>
+                     </div>
+                     <div class="comment-right">
+                      <%=comment.created_at.strftime('%C%y-%m-%d ')  %>
+                      <div>
+                        <%= link_to user_path(comment.user_id) do%>
+                          <%= comment.user.name %>
+                        <% end %>
+                        <span>さんのコメント</span>
+                      </div>
+                     </div>
+                     </li>
+                     <% end %>
+                   </ul>
+                  
+                  </div>
+                  <div class="comment-form-area">
+                        <%= form_with(model: [@tweet, @comment], local: true,class:"with-all") do |form| %>
+                          <div class="text-form">
+                            <%= form.text_area :text, placeholder: "コメントする", rows: "2",class:"with-text" %>
+                          </div>
+                          <div class="btn-form">
+                          <%= form.label "SEND",for:"submit-btn",class:"com-submit" do%>
+                          <i class="fas fa-pen-alt"></i>
+                          <% end %>
+                          <%= form.submit id:"submit-btn" %>
+                          </div> 
+                          <% end %>
+                  </div>     
+              </div>
+          </div>
+        </div>  
+      <div>
+        <nav class="mobile-menu">
+            <ul class="mobile-menu__main">
+               <li class="mobile-menu__item">
+                    <%= link_to user_path(current_user.id), class:"link-dec" do%>
+                        <span class="main-title">My Page</span>
+                        <span class="sub-title">マイページ</span>
+                    <% end %>
+                </li>
+                <li class="mobile-menu__item">
+                     <%= link_to best_tweets_path, class:"link-dec" do%>
+                        <span class="main-title">BestTweet</span>
+                        <span class="sub-title">人気の投稿</span>
+                     <% end %>
+                </li>
+                <li class="mobile-menu__item">
+                    <%= link_to list_tweets_path, class:"link-dec" do%>
+                        <span class="main-title">Latest Tweet</span>
+                        <span class="sub-title">最新の投稿</span>
+                    <% end %>
+                </li>
+                <li class="mobile-menu__item">
+                    <%= link_to new_tweet_path, class:"link-dec" do%>
+                      <span class="main-title">New Post</span>
+                      <span class="sub-title">新規投稿</span>
+                    <% end %>
+              </li>
+            </ul>
+          </nav>
+      </div>
+  </div>
+  <%= javascript_pack_tag 'main.js' %>
+</body>
+</html>

@@ -13,9 +13,8 @@
 </head>
 <body>
   <div id="global-container">
-        <div id="container">
+      <div id="container">
           <div class="mobile-menu__cover"></div>
-          
             <header class="header-menu">
                <div class="header_left">
                   <%=link_to root_path,class:"app-title" do%>
@@ -23,8 +22,12 @@
                </div>
                <div class="header-right">
                   <div class="header-link">
-                      <a href="#">sign up</a>
-                      <a href="#">log in</a>
+                      <%= link_to   root_path do %>
+                          <span>Top Page</span>
+                          <% end %>
+                          <%= link_to  new_user_registration_path do %>
+                          <span>Sign Up</span>
+                          <% end %>
                   </div>
                 
                   <button class="mobile-menu__btn">
@@ -61,38 +64,40 @@
               </div>
               <div class="top-img"></div>
             </div> 
-        </div>   
-        <div>
-            <nav class="mobile-menu">
+       </div>
+           <div>
+             <nav class="mobile-menu">
                 <ul class="mobile-menu__main">
+                     <% if user_signed_in? %> 
+                          <li class="mobile-menu__item">
+                          <%= link_to user_path(current_user), class:"link-dec" do%>
+                              <span class="main-title">My Page</span>
+                              <span class="sub-title">マイページ</span>
+                          <% end %>
+                          </li>
+                      <% end %>
                     <li class="mobile-menu__item">
-                        <a class="mobile-menu__link" href="#">
-                            <span class="main-title">aaaaa</span>
-                            <span class="sub-title">bbbbb</span>
-                        </a>
+                        <%= link_to best_tweets_path, class:"link-dec" do%>
+                            <span class="main-title">BestTweet</span>
+                            <span class="sub-title">人気の投稿</span>
+                        <% end %>
                     </li>
                     <li class="mobile-menu__item">
-                        <a class="mobile-menu__link" href="#">
-                            <span class="main-title">cccccc</span>
-                            <span class="sub-title">dddddd</span>
-                        </a>
+                        <%= link_to list_tweets_path, class:"link-dec" do%>
+                            <span class="main-title">Latest Tweet</span>
+                            <span class="sub-title">最新の投稿</span>
+                        <% end %>
                     </li>
                     <li class="mobile-menu__item">
-                        <a class="mobile-menu__link" href="#">
-                            <span class="main-title">eeeeee</span>
-                            <span class="sub-title">ffffff</span>
-                        </a>
-                    </li>
-                    <li class="mobile-menu__item">
-                      <a class="mobile-menu__link" href="#">
-                          <span class="main-title">eeeeee</span>
-                          <span class="sub-title">ffffff</span>
-                      </a>
+                        <%= link_to new_tweet_path, class:"link-dec" do%>
+                          <span class="main-title">New Post</span>
+                          <span class="sub-title">新規投稿</span>
+                        <% end %>
                   </li>
                 </ul>
               </nav>
-        </div>
-   
+           </div>
+    
   </div>
   <%= javascript_pack_tag 'main.js' %>
 </body>  
