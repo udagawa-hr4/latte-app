@@ -339,17 +339,22 @@ body{
                             position: absolute;
                             bottom: 4%;
                             left: 15%;
-                            font-size: 20px;
+                            font-size: 16px;
                             font-family: Oswald;
-                            
+                            width: 50%;
+                            font-weight: 600;
                             & a{
                                text-decoration: none;
-                               color: rgb(253, 253, 253);
+                               color: rgb(184, 252, 106);
                                text-shadow: 2px 2px 2px rgb(68, 80, 85);
                                transition: all 0.3s;
                                display: inline-block;
+                               text-overflow: ellipsis;
+                                overflow: hidden;
+                                width: 100%;
+                                white-space: nowrap;
                                &:hover{
-                                   transform: scale(1.1);
+                                   transform: scale(1.05);
                                    text-shadow: 0px 0px 20px rgb(235, 192, 3);
                                }
                             }
@@ -358,10 +363,13 @@ body{
                             position: absolute;
                             bottom: -10%;
                             right: 3%;
-                            font-size: 18px;
+                            font-size: 14px;
                             text-decoration: none;
                             text-shadow: 2px 2px 2px rgb(43, 54, 58);
                             font-family: Oswald;
+                            width: 100%;
+                            display: flex;
+                            justify-content: flex-end;
                             & .name-sub{
                                 color: white;
                                 font-size: 12px;
@@ -371,6 +379,12 @@ body{
                             & a{
                                 color: aquamarine;
                                 text-decoration: none;
+                                display: inline-block;
+                                text-overflow: ellipsis;
+                                overflow: hidden;
+                                width: 50%;
+                                white-space: nowrap;
+                                text-align: end;
                             }
                  
                         }
@@ -554,19 +568,26 @@ body{
                         position: absolute;
                         bottom: 13%;
                         left: 15%;
-                        font-size: 20px;
+                        font-size: 16px;
                         font-family: Oswald;
-                        
+                        width: 50%;
+                        font-weight: 600;
                         & a{
                            text-decoration: none;
-                           color: rgb(253, 253, 253);
+                           color: rgb(184, 252, 106);
                            text-shadow: 2px 2px 2px rgb(68, 80, 85);
                            transition: all 0.3s;
                            display: inline-block;
+                           text-overflow: ellipsis;
+                           overflow: hidden;
+                           width: 100%;
+                           white-space: nowrap;
                            &:hover{
-                               transform: scale(1.1);
-                               text-shadow: 0px 0px 20px rgb(12, 12, 12);
+                               transform: scale(1.05);
+                               text-shadow: 0px 0px 30px rgb(75, 236, 25);
                                transition: all 0.5s;
+                               text-overflow: ellipsis;
+                               
                            }
                         }
                     }
@@ -574,19 +595,27 @@ body{
                         position: absolute;
                         bottom: 1%;
                         right: 3%;
-                        font-size: 18px;
+                        font-size: 14px;
                         text-decoration: none;
                         text-shadow: 2px 2px 2px rgb(43, 54, 58);
                         font-family: Oswald;
+                        width: 100%;
+                        display: flex;
+                        justify-content: flex-end;
                         & .name-sub{
                             color: white;
                             font-size: 12px;
-                            font-weight: 600;
-                            
+                            font-weight: 600;  
                         }
                         & a{
                             color: aquamarine;
                             text-decoration: none;
+                            display: inline-block;
+                            text-overflow: ellipsis;
+                            overflow: hidden;
+                            width: 50%;
+                            white-space: nowrap;
+                            text-align: end;
                         }
              
                     }
@@ -779,6 +808,9 @@ body{
     margin-bottom: 3%;
     
 }
+.link-dec{
+    text-decoration: none;
+}
 
 @keyframes kf-slide{
    
@@ -852,7 +884,4 @@ body{
         opacity: 1;
         transform: translateX(0);
     }
-}
-.link-dec{
-    text-decoration: none;
 }

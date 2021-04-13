@@ -149,6 +149,7 @@ body{
         padding: 0 40px;
         transition: transform 0.3s, opacity 0.2s;
         opacity: 0;
+        margin-top: 13%;
     }
     &__link {
         display: block;
@@ -205,14 +206,21 @@ body{
 }
 
 .main-title {
-    font-weight: 600;
-    font-size: 25px;
-    color: $cWhite;
+  font-weight: 600;
+  font-size: 24px;
+  color: $cWhite;
 }
 .sub-title {
-    display: block;
-    font-size: 14px;
-    color: $cWhite;
+  display: block;
+  padding-top: 4%;
+  font-size: 12px;
+  color: $cWhite;
+  font-weight: 600;
+  margin-bottom: 3%;
+  
+}
+.link-dec{
+  text-decoration: none;
 }
 @keyframes kf-slide{
    

@@ -266,8 +266,18 @@ li{
                 flex-direction: column;
                 align-items: flex-end;
                 justify-content: space-between;
-                & a{
-                  color: rgb(0, 162, 255);
+                width:50%;
+                & .com-name{
+                   width: 100%;
+                  & a{
+                    display: inline-block;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    width: 52%;
+                    white-space: nowrap;
+                    color: rgb(0, 162, 255);
+                    text-align: end;
+                  }
                 }
               }
             }
@@ -342,6 +352,7 @@ li{
         padding: 0 40px;
         transition: transform 0.3s, opacity 0.2s;
         opacity: 0;
+        margin-top: 13%;
     }
     &__link {
         display: block;
@@ -398,14 +409,21 @@ li{
 }
 
 .main-title {
-    font-weight: 600;
-    font-size: 25px;
-    color: $cWhite;
+  font-weight: 600;
+  font-size: 24px;
+  color: $cWhite;
 }
 .sub-title {
-    display: block;
-    font-size: 14px;
-    color: $cWhite;
+  display: block;
+  padding-top: 4%;
+  font-size: 12px;
+  color: $cWhite;
+  font-weight: 600;
+  margin-bottom: 3%;
+  
+}
+.link-dec{
+  text-decoration: none;
 }
 
 @keyframes kf-slide{
