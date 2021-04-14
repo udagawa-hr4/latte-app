@@ -47,6 +47,9 @@
                 <span class="main-edit-title">Edit</span>
                 <span class="sub-edit-title">編集</span>
               <% end %>
+              <% if current_user != @user %>
+                <%= link_to 'チャットする', chat_path(@user.id) %>
+              <% end %>
               <div class="intro-area">
                  <span class="main-intro-title">Introduction</span>
                  <span class="sub-intro-title">自己紹介</span>
