@@ -42,12 +42,16 @@
             </header>
             <div class="top-wrapper">
               <span class="main-list-title">My Page</span>
-              <span class="sub-list-title">マイページ</span>
+              <span class="sub-list-title"><%="#{@user.name}さん"%></span>
+              <%= link_to  edit_user_path(@user.id),class:"edit-btn" do%>
+                <span class="main-edit-title">Edit</span>
+                <span class="sub-edit-title">編集</span>
+              <% end %>
               <div class="intro-area">
                  <span class="main-intro-title">Introduction</span>
                  <span class="sub-intro-title">自己紹介</span>
                  <div class="intro-text-area">
-                    <% if @user.profile.present? && @user.profile.introduction != nil && @user.profile.introduction !=""  %>
+                    <% if @user.present? && @user.introduction != nil && @user.introduction !=""  %>
                         <%= safe_join(@user.introduction.split("\n"),tag(:br)) %>
                     <% else %>
                         <p class="intro-def">自己紹介</p>

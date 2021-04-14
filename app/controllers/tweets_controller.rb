@@ -38,8 +38,8 @@ class TweetsController < ApplicationController
   def destroy
     @tweet= Tweet.find(params[:id])
     user = @tweet.user_id
-    if user_signed_in? && current_user.id == @post.user.id
-     @post.destroy
+    if user_signed_in? && current_user.id == @tweet.user.id
+     @tweet.destroy
      redirect_to controller: :users, action: :show, id: user
     else
      redirect_to root_path
