@@ -1,0 +1,4 @@
+$('.message').prepend("<p class='i-chat-aj'><%= safe_join(@chat.message.split("\n"),tag(:br)) %></p>");
+$('.message').append("<% if @chat.image.attached? %><%= link_to @image, "data-lightbox" => @image do %><%= image_tag @image,class:"img-tag", height: '250', :style=>"width:300;"%><% end %><% end %>");
+$('.message-form').val("")
+$('.message-img').val("")

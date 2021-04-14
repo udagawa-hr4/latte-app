@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+   <% content_for :css do %>
+    <%= stylesheet_link_tag 'chat_show.css' %>
+  <% end %>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Rubik:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+</head>
+<body>
+  <div id="global-container">
+       <div id="container">
+          <div class="mobile-menu__cover"></div>
+          
+            <header class="header-menu">
+               <div class="header_left">
+                  <%=link_to root_path,class:"app-title" do%>
+                  <% end %>
+               </div>
+               <div class="header-right">
+                  <div class="header-link">
+                      <a href="#">sign up</a>
+                      <a href="#">log in</a>
+                  </div>
+                
+                  <button class="mobile-menu__btn">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                  </button>
+               </div>
+            </header>
+          <div class="top-wrapper">
+          　<span class="main-list-title">Chat Page</span>
+            <h2 id="room" class="sub-list-title" data-room="<%= @room.id %>" data-user="<%= current_user.id %>"><%= @user.name %> さんとのチャット</h2>
+            
+            <div class="chat-area">
+                      
+
+                      <div class="message-area">
+                          <div class="chat-user_name">
+                            <span class ="user-name1"><%= "#{current_user.name}さん"%></span>
+                            <span class="user-name2"><%= "#{@user.name}さん" %></span>
+                          </div>
+                          <div class="message"></div>
+                        <% @chats.each do |chat| %>
+                          <% if chat.user_id == current_user.id %> 
+                          <div class="i-chat-area">
+                                <p class="i-chat" style="text-align: left;"><%=  safe_join(chat.message.split("\n"),tag(:br)) %></p>
+                          </div>
+                          <% else %>
+                          <div class="y-chat-area">
+                                <p class="y-chat" style="text-align: right;"><%=  safe_join(chat.message.split("\n"),tag(:br))%></p>
+                                <p class="y-chat" style="text-align:right;"><%= chat.created_at %></p>
+                          </div>
+                          <% end %>
+                        <% end %>
+                      </div>
+
+                      <%= form_with model: @chat do |f| %>
+                        <%= f.text_area :message,class:"message-form" %>
+                        <%= f.hidden_field :room_id %>
+                        <%= f.file_field :image,class:"message-img" %>
+                        <%= f.submit "送信" %>
+                      <% end %>
+                  
+              </div>
+           </div>    
+      </div>     
+           <div>
+              <nav class="mobile-menu">
+                <ul class="mobile-menu__main">
+                   <% if user_signed_in? %>
+                        <li class="mobile-menu__item">
+                            <%= link_to user_path(current_user.id), class:"link-dec" do%>
+                                <span class="main-title">My Page</span>
+                                <span class="sub-title">マイページ</span>
+                            <% end %>
+                        </li>
+                 　　　　<% else %> 
+                          <li class="mobile-menu__item">
+                                <%= link_to root_path, class:"link-dec" do%>
+                                    <span class="main-title">Top Page</span>
+                                    <span class="sub-title">トップページ</span>
+                              <% end %>
+                          </li>
+                        <% end %>
+                <li class="mobile-menu__item">
+                     <%= link_to best_tweets_path, class:"link-dec" do%>
+                        <span class="main-title">BestTweet</span>
+                        <span class="sub-title">人気の投稿</span>
+                     <% end %>
+                </li>
+                <li class="mobile-menu__item">
+                    <%= link_to list_tweets_path, class:"link-dec" do%>
+                        <span class="main-title">Latest Tweet</span>
+                        <span class="sub-title">最新の投稿</span>
+                    <% end %>
+                </li>
+              <% if user_signed_in?  %> 
+                <li class="mobile-menu__item">
+                    <%= link_to new_tweet_path, class:"link-dec" do%>
+                      <span class="main-title">New Post</span>
+                      <span class="sub-title">新規投稿</span>
+                    <% end %>
+                </li>
+                 <% end %>
+                  </ul>
+                </nav>
+            </div>
+   
+  </div>
+  <%= javascript_pack_tag 'main.js' %>
+</body> 
+ 
+    
+
+</html>
