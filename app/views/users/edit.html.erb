@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <% content_for :css do %>
-    <%= stylesheet_link_tag 'edit.css' %>
+    <%= stylesheet_link_tag 'user_edit.css' %>
   <% end %>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Oswald:wght@400;600&display=swap" rel="stylesheet">
@@ -38,38 +38,28 @@
           <div class="top-wrapper">
           　<span class="main-list-title">Edit Page</span>
             <span class="sub-list-title">編集ページ</span>
-            <%= link_to tweet_path(@tweet),method: :delete,class:"delete-btn" do%>  
-            <span class="main-delete-title">Delete</span>
-            <span class="sub-delete-title">削除</span>
-            <% end %>
             <div class ="form-post">
-                <%= form_with model: @tweet, class: "form_all" ,local: true do |f| %>
+                <%= form_with model: @user, class: "form_all" ,local: true do |f| %>
                   <div class="left-form">
                       <div class = "form-title">
-                            <%= f.label :title,class:"title-label" do%>
-                              <span class="main-title-label">Title</span>
-                              <span class="sub-title-label">タイトル</span>
+                            <%= f.label :name,class:"title-label" do%>
+                              <span class="main-title-label">Nickname</span>
+                              <span class="sub-title-label">ニックネーム</span>
                             <% end %>
-                            <%= f.text_field :title ,class: "title-area" ,autocomplete:"off",placeholder:"20文字以内" %>
+                            <%= f.text_field :name ,class: "title-area" ,autocomplete:"off",placeholder:"20文字以内" %>
                       </div>
-                      <div class = "form-img">
-                        <%= f.label :images,class:"img-label" do%>
-                          <span class="main-img-title">Images</span>
-                          <span class="sub-img-title">画像・動画 (Up to 4files)</span>
-                        <% end %>
-                        <%= f.file_field :images,class:"img-area", multiple: true %>
-                      </div>
+                      
                       <div class = "form-submit">
-                        <%= f.label "投稿する",for:"submit-btn",class:"btn-label" %> 
+                        <%= f.label "編集する",for:"submit-btn",class:"btn-label" %> 
                         <%= f.submit class:"submit-area",id:"submit-btn" %>
                       </div>
                   </div>
                   <div class = "form-right">
-                        <%= f.label :text,class:"text-label" do%>
-                         <span class="main-text-title">Text</span>
-                         <span class= "sub-text-title">テキスト</span>
+                        <%= f.label :introduction,class:"text-label" do%>
+                         <span class="main-text-title">Introduction</span>
+                         <span class= "sub-text-title">自己紹介文</span>
                          <% end %>
-                        <%= f.text_area :text, class:"text-area",autocomplete:"off" %>
+                        <%= f.text_area :introduction, class:"text-area",autocomplete:"off" %>
                   
                   </div>
                 <% end %>
