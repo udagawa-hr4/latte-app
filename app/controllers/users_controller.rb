@@ -2,6 +2,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @tweets = @user.tweets.order("tweets.created_at DESC").paginate(page: params[:page], per_page: 8)
+    @rooms = @user.rooms.order("rooms.created_at DESC")
+    @room = UserRoom.where(room_id: @rooms)
+    
   end
   def edit
     @user = User.find(params[:id])

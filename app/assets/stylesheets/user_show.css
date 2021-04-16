@@ -531,6 +531,106 @@ li {
           transform: translateY(-11px) rotate(-135deg);
 }
 
+.chat-link {
+  height: 8%;
+  width: 15%;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  right: 17%;
+  top: 5%;
+  background-color: black;
+  z-index: 50;
+  color: white;
+}
+
+.chat-link p {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.chat-link .chat-mem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: scroll;
+  height: 80%;
+  width: 80%;
+}
+
+.chat-link .chat-mem .mem-name {
+  text-align: center;
+  margin-top: 5%;
+  font-size: 15px;
+}
+
+.chat-link .chat-mem .mem-name a {
+  color: white;
+}
+
+.do-chat {
+  position: absolute;
+  top: 5%;
+  left: 75%;
+  width: 9%;
+  height: 5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: 600;
+  color: white;
+  font-size: 16px;
+  text-decoration: none;
+  text-align: center;
+  background-color: black;
+}
+
+.do-chat:hover {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  background-color: white;
+  color: black;
+}
+
+.do-chat .main-chat-title {
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.do-chat .sub-chat-title {
+  margin-top: 2%;
+  font-size: 15px;
+  font-weight: 600;
+}
+
 .main-title {
   font-weight: 600;
   font-size: 24px;
@@ -765,7 +865,7 @@ li {
   width: 8%;
   height: 5%;
   left: 85%;
-  top: 7%;
+  top: 5%;
   text-decoration: none;
   color: white;
   background-color: black;

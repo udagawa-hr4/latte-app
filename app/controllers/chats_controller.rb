@@ -1,9 +1,10 @@
 class ChatsController < ApplicationController
+  include Rails.application.routes.url_helpers
   def show
     @user = User.find(params[:id])
     #ログインしているユーザーのidが入ったroom_idのみを配列で取得（該当するroom_idが複数でも全て取得）
     rooms = current_user.user_rooms.pluck(:room_id)
-    #user_idが@user　且つ　room_idが上で取得したrooms配列の中にある数値のもののみ取得(1個または0個のはずです)
+    #user_idが@user　且つ　room_idが上で取得したrooms配列の中にある数値のもののみ取得(1個または0個のはず)
     user_rooms = UserRoom.find_by(user_id: @user.id, room_id: rooms)
 
     if user_rooms.nil? #上記で取得できなかった場合の処理
@@ -27,12 +28,14 @@ class ChatsController < ApplicationController
   def create
     @chat = current_user.chats.new(chat_params)
     @chat.save
-    @image = url_for(@chat.image)
+    if @chat.image.attached?
+      @image = url_for(@chat.image)
+    end
   end
 
   private
   def chat_params
-    params.require(:chat).permit(:message, :room_id,:image)
+    params.require(:chat).permit(:message, :room_id, :image)
   end
 
 end
