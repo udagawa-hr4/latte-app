@@ -1,32 +1,123 @@
-<h2>Sign up</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <% content_for :css do %>
+    <%= stylesheet_link_tag"sign_up.css" %>
+  <% end %>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Rubik:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="global-container">
+        <div id="container">
+          <div class="mobile-menu__cover"></div>
+            <header class="header-menu">
+               <div class="header_left">
+                  <%=link_to root_path,class:"app-title" do %>
+                   <% end %>
+               </div>
+               <div class="header-right">
+                  <div class="header-link">
+                  <% if user_signed_in? %>
+                          <%= link_to destroy_user_session_path, method: :delete do %>
+                          <span>Log Out</span>
+                          <% end %>
+                          <%= link_to user_path(current_user)   do %>
+                          <span>My Page</span>
+                          <% end %>
+                    <% else %>
+                        <%= link_to   new_user_session_path do %>
+                          <span>Log In</span>
+                          <% end %>
+                          <%= link_to root_path do %>
+                          <span>Top Page</span>
+                          <% end %>
+                   <% end %>   
+                  </div>
+                
+                  <button class="mobile-menu__btn">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                  </button>
+              </div>
+            </header>
+          <div class="top-wrapper">
+             <span class="form-title1">Sign</span>
+             <span class="form-title2">up</span>
+             <div class="login-form">
+                <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                    <div class="field-name">
+                      <%= f.text_field :name, autofocus: true, autocomplete: "name",class:"name-form",placeholder:"name" %>
+                    </div>
+                    <div class="field-email">
+                      <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"email-form",placeholder:"email" %>
+                    </div>
+                    <div class="field-password">
+                      <%= f.password_field :password, autocomplete: "current-password",placeholder:"password",class:"password-form" %>
+                    </div>
+                    <!--<% if devise_mapping.rememberable? %>
+                      <div class=“field”>
+                        <%= f.check_box :remember_me %>
+                        <%= f.label :remember_me %>
+                      </div>
+                    <% end %>-->
+                    <div class="actions">
+                      <%= f.label "Sign up" ,for:"form-submit",class:"submit-label" %>
+                      <%= f.submit "Sign up",id:"form-submit", class:"submit-btn" %>
+                    </div>
+                 <% end %>
+              </div>
+              <div class="top-img"></div>
+            </div>
+        </div>
+        <div>
+            <nav class="mobile-menu">
+            <ul class="mobile-menu__main">
+               <% if user_signed_in? %>
+                  <li class="mobile-menu__item">
+                      <%= link_to user_path(current_user.id), class:"link-dec" do%>
+                          <span class="main-title">My Page</span>
+                          <span class="sub-title">マイページ</span>
+                      <% end %>
+                  </li>
+                 <% else %> 
+                 <li class="mobile-menu__item">
+                      <%= link_to root_path, class:"link-dec" do%>
+                          <span class="main-title">Top Page</span>
+                          <span class="sub-title">トップページ</span>
+                      <% end %>
+                  </li>
+                <% end %>
+                <li class="mobile-menu__item">
+                     <%= link_to best_tweets_path, class:"link-dec" do%>
+                        <span class="main-title">BestTweet</span>
+                        <span class="sub-title">人気の投稿</span>
+                     <% end %>
+                </li>
+                <li class="mobile-menu__item">
+                    <%= link_to list_tweets_path, class:"link-dec" do%>
+                        <span class="main-title">Latest Tweet</span>
+                        <span class="sub-title">最新の投稿</span>
+                    <% end %>
+                </li>
+                <% if user_signed_in?  %> 
+                <li class="mobile-menu__item">
+                    <%= link_to new_tweet_path, class:"link-dec" do%>
+                      <span class="main-title">New Post</span>
+                      <span class="sub-title">新規投稿</span>
+                    <% end %>
+                </li>
+                 <% end %>
+            </ul>
+          </nav>
+        </div>
+  </div>
+  <%= javascript_pack_tag "mobile.js"%>
+</body>
+</html>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "off" %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>

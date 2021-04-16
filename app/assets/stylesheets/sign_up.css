@@ -1,16 +1,6 @@
-html {
-  margin: 0;
-  padding: 0;
-}
-
 body {
   font-family: Oswald;
   margin: 0;
-  padding: 0;
-}
-
-li {
-  list-style: none;
 }
 
 #global-container {
@@ -22,7 +12,7 @@ li {
 #container {
   position: relative;
   width: 100vw;
-  height: calc(100vh - 100px);
+  height: 100%;
   z-index: 2;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
@@ -58,7 +48,6 @@ li {
 #container .header-menu .header_left .app-title {
   width: 100%;
   height: 100%;
-  color: white;
   background-image: url(/assets/1.jpg);
   background-size: 100% 100%;
   position: absolute;
@@ -98,331 +87,230 @@ li {
 
 #container .top-wrapper {
   width: 100%;
-  height: 80%;
+  height: 80vh;
   position: relative;
   top: 100px;
   left: 0;
   z-index: -10;
 }
 
-#container .top-wrapper .chat-area {
-  width: 90%;
-  height: 90%;
+#container .top-wrapper .form-title1 {
   position: absolute;
-  top: 100px;
-  left: 5%;
+  top: 45%;
+  left: 30%;
+  font-size: 45px;
+  z-index: 1;
+  letter-spacing: 0.1em;
+  color: #fafbfc;
 }
 
-#container .top-wrapper .chat-area .message-area {
-  width: 100%;
-  height: 100%;
-  background-color: darkgray;
-  overflow: scroll;
+#container .top-wrapper .form-title2 {
+  position: absolute;
+  top: 45%;
+  left: 36%;
+  font-size: 45px;
+  z-index: 1;
+  letter-spacing: 0.1em;
+  color: #f5d001;
 }
 
-#container .top-wrapper .chat-area .message-area .chat-user_name {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-}
-
-#container .top-wrapper .chat-area .message-area .chat-user_name .user-name1 {
-  display: inline-block;
-  color: #e2372b;
-  font-weight: 600;
-  font-size: 25px;
-  text-shadow: 3px 3px 5px #494949;
-}
-
-#container .top-wrapper .chat-area .message-area .chat-user_name .user-name2 {
-  display: inline-block;
-  color: #2e2be2;
-  font-weight: 600;
-  font-size: 25px;
-  text-shadow: 3px 3px 5px #494949;
-}
-
-#container .top-wrapper .chat-area .message-area .i-chat-area {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  width: 100%;
-}
-
-#container .top-wrapper .chat-area .message-area .i-chat-area .i-chat-tweet {
-  background-color: chartreuse;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 3%;
-  padding-right: 3%;
-  border-radius: 10px;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  margin-left: 3%;
-  word-break: break-all;
-  font-size: 18px;
-  font-weight: 600;
-  width: 20%;
-  text-align: center;
-}
-
-#container .top-wrapper .chat-area .message-area .i-chat-area .i-chat-tweet .i-chat-text {
-  font-size: 23px;
-  word-break: break-all;
-}
-
-#container .top-wrapper .chat-area .message-area .i-chat-area .i-chat-tweet .i-chat-time {
-  font-size: 16px;
-}
-
-#container .top-wrapper .chat-area .message-area .i-chat-area .i-chat-image {
-  border-radius: 10px;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  margin-left: 3%;
-  width: 25%;
-  text-align: center;
-}
-
-#container .top-wrapper .chat-area .message-area .y-chat-area {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-  width: 100%;
-}
-
-#container .top-wrapper .chat-area .message-area .y-chat-area .y-chat-tweet {
-  background-color: chartreuse;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 3%;
-  padding-right: 3%;
-  border-radius: 10px;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  margin-right: 3%;
-  word-break: break-all;
-  font-size: 18px;
-  font-weight: 600;
-  width: 20%;
-  text-align: center;
-}
-
-#container .top-wrapper .chat-area .message-area .y-chat-area .y-chat-tweet .y-chat-text {
-  font-size: 23px;
-  word-break: break-all;
-  margin-bottom: 3%;
-}
-
-#container .top-wrapper .chat-area .message-area .y-chat-area .y-chat-tweet .y-chat-time {
-  font-size: 16px;
-}
-
-#container .top-wrapper .chat-area .message-area .y-chat-area .y-chat-image {
-  border-radius: 10px;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  margin-right: 3%;
-  width: 25%;
-  text-align: center;
-}
-
-#container .top-wrapper .chat-area .message-area video {
-  width: 290px;
-  height: 290px;
-  -o-object-fit: fill;
-     object-fit: fill;
-}
-
-#container .top-wrapper .chat-area .message-area img {
-  width: 290px;
-  height: 290px;
-  -o-object-fit: fill;
-     object-fit: fill;
-}
-
-.form-area {
-  margin-top: 1.5%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  height: 5vh;
-}
-
-.form-area .message-form {
-  width: 40%;
-  height: 98%;
-  font-size: 20px;
-  outline: none;
-  border-radius: 10px;
-  border: 2px solid black;
-  padding-left: 1%;
-  font-weight: 600;
-}
-
-.form-area .message-form::-webkit-input-placeholder {
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.form-area .message-form:-ms-input-placeholder {
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.form-area .message-form::-ms-input-placeholder {
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.form-area .message-form::placeholder {
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.form-area .pen-btn {
-  display: none;
-}
-
-.form-area .btn_label {
-  height: 80%;
-  width: 10%;
+#container .top-wrapper .top-img {
   position: relative;
-  top: -10%;
-  left: -1%;
+  background-size: cover;
+  width: 100%;
+  height: calc(100vh - 100px);
+  top: 0%;
+  left: 0%;
+  background-image: url(/assets/coffee-2564692_1920.jpg);
+  overflow: hidden;
   z-index: 0;
 }
 
-.form-area .btn_label .fas {
+#container .top-wrapper .top-img::before {
   position: absolute;
-  z-index: 10;
-  width: 50%;
-  height: 100%;
-  top: 25%;
-  font-size: 30px;
-  cursor: pointer;
-  text-align: center;
-  padding-top: 3%;
-  -webkit-transform: rotateY(-180deg);
-          transform: rotateY(-180deg);
-}
-
-.form-area .btn_label .fas:hover {
-  color: #0dc4b4;
-}
-
-.form-area .img-form {
-  position: relative;
-  width: 8%;
-  height: 100%;
-  margin-left: 1%;
-}
-
-.form-area .img-form .message-img {
-  display: none;
-}
-
-.form-area .img-form .img-label {
-  position: relative;
+  content: "";
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
   width: 100%;
-  text-align: center;
-  height: 70%;
-  font-size: 40px;
-  left: 25%;
-  cursor: pointer;
+  height: 100%;
+  background: inherit;
+  -webkit-filter: blur(8px);
+          filter: blur(8px);
 }
 
-.form-area .img-form .img-label:hover {
-  color: deeppink;
+#container .top-wrapper .login-form {
+  position: absolute;
+  top: 35%;
+  left: 45%;
+  z-index: 5;
+  width: 40%;
+  height: 60%;
 }
 
-.message {
+#container .top-wrapper .login-form .new_user {
+  width: 100%;
+  height: 100%;
+}
+
+#container .top-wrapper .login-form .new_user .field-name {
+  width: 100%;
+  height: 15%;
+}
+
+#container .top-wrapper .login-form .new_user .field-name .name-form {
+  outline: none;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 5px;
+  width: 70%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  font-size: 25px;
+  color: white;
+  text-indent: 0.3em;
+}
+
+#container .top-wrapper .login-form .new_user .field-name .name-form::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 25px;
+  text-indent: 0.3em;
+}
+
+#container .top-wrapper .login-form .new_user .field-name .name-form:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 25px;
+  text-indent: 0.3em;
+}
+
+#container .top-wrapper .login-form .new_user .field-name .name-form::-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 25px;
+  text-indent: 0.3em;
+}
+
+#container .top-wrapper .login-form .new_user .field-name .name-form::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 25px;
+  text-indent: 0.3em;
+}
+
+#container .top-wrapper .login-form .new_user .field-email {
+  margin-top: 3%;
+  width: 100%;
+  height: 15%;
+}
+
+#container .top-wrapper .login-form .new_user .field-email .email-form {
+  outline: none;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 5px;
+  width: 70%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  font-size: 25px;
+  color: white;
+  text-indent: 0.3em;
+}
+
+#container .top-wrapper .login-form .new_user .field-email .email-form::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 25px;
+  text-indent: 0.3em;
+}
+
+#container .top-wrapper .login-form .new_user .field-email .email-form:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 25px;
+  text-indent: 0.3em;
+}
+
+#container .top-wrapper .login-form .new_user .field-email .email-form::-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 25px;
+  text-indent: 0.3em;
+}
+
+#container .top-wrapper .login-form .new_user .field-email .email-form::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 25px;
+  text-indent: 0.3em;
+}
+
+#container .top-wrapper .login-form .new_user .field-password {
+  margin-top: 3%;
+  width: 100%;
+  height: 15%;
+}
+
+#container .top-wrapper .login-form .new_user .field-password .password-form {
+  outline: none;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 5px;
+  width: 70%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  font-size: 25px;
+  color: white;
+  text-indent: 0.3em;
+}
+
+#container .top-wrapper .login-form .new_user .field-password .password-form::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 25px;
+  text-indent: 0.3em;
+}
+
+#container .top-wrapper .login-form .new_user .field-password .password-form:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 25px;
+  text-indent: 0.3em;
+}
+
+#container .top-wrapper .login-form .new_user .field-password .password-form::-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 25px;
+  text-indent: 0.3em;
+}
+
+#container .top-wrapper .login-form .new_user .field-password .password-form::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 25px;
+  text-indent: 0.3em;
+}
+
+#container .top-wrapper .login-form .new_user .actions {
+  margin-top: 3%;
+  width: 100%;
+  height: 15%;
+}
+
+#container .top-wrapper .login-form .new_user .actions .submit-label {
+  width: 70%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.685);
+  display: inline-block;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  color: #A18D6C;
+  font-size: 25px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
 }
 
-.message .i-chat-aj {
-  background-color: chartreuse;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 3%;
-  padding-right: 3%;
-  border-radius: 10px;
-  margin-top: 1%;
-  margin-left: 3%;
-  word-break: break-all;
-  font-size: 18px;
-  font-weight: 600;
-  width: 20%;
-  text-align: center;
+#container .top-wrapper .login-form .new_user .actions .submit-label:hover {
+  background-color: rgba(255, 255, 255, 0.885);
 }
 
-.message .i-chat-text {
-  font-size: 23px;
-  word-break: break-all;
-  margin-bottom: 3%;
-}
-
-.message .i-chat-time {
-  font-size: 16px;
-}
-
-.message .i-chat-image {
-  border-radius: 10px;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  margin-left: 3%;
-  width: 25%;
-  text-align: center;
-}
-
-.message .i-chat-image .img-tag {
-  border-radius: 10px;
-  margin-top: 10px;
-  margin-left: 3%;
-  width: 25%;
-  text-align: center;
-}
-
-.message .i-chat-image video {
-  width: 290px;
-  height: 290px;
-  -o-object-fit: fill;
-     object-fit: fill;
-}
-
-.message .i-chat-image img {
-  width: 290px;
-  height: 290px;
-  -o-object-fit: fill;
-     object-fit: fill;
+#container .top-wrapper .login-form .new_user .actions .submit-btn {
+  display: none;
 }
 
 .mobile-menu {
@@ -430,7 +318,7 @@ li {
   right: 0%;
   top: 0%;
   width: 300px;
-  height: 100%;
+  height: 100vh;
   visibility: hidden;
   background-color: #00052b;
   -webkit-transform: translateX(100%);
@@ -451,8 +339,8 @@ li {
 
 .mobile-menu__btn > span {
   background-color: white;
-  -webkit-box-shadow: 0px 0px 2px #ffffff;
-          box-shadow: 0px 0px 2px #ffffff;
+  -webkit-box-shadow: 0px 0px 2px #FFFFFF;
+          box-shadow: 0px 0px 2px #FFFFFF;
   width: 35px;
   height: 2px;
   display: block;
@@ -562,8 +450,8 @@ li {
 
 .menu-open .mobile-menu__btn > span {
   background-color: white;
-  -webkit-box-shadow: 0px 0px 2px #ffffff;
-          box-shadow: 0px 0px 2px #ffffff;
+  -webkit-box-shadow: 0px 0px 2px #FFFFFF;
+          box-shadow: 0px 0px 2px #FFFFFF;
 }
 
 .menu-open .mobile-menu__btn > span:nth-child(1) {
@@ -600,10 +488,6 @@ li {
   color: white;
   font-weight: 600;
   margin-bottom: 3%;
-}
-
-.link-dec {
-  text-decoration: none;
 }
 
 @-webkit-keyframes kf-slide {
@@ -691,7 +575,7 @@ li {
     width: 0%;
   }
   100% {
-    width: 15%;
+    width: 58%;
   }
 }
 
@@ -700,7 +584,7 @@ li {
     width: 0%;
   }
   100% {
-    width: 15%;
+    width: 58%;
   }
 }
 
@@ -778,39 +662,7 @@ li {
   }
 }
 
-.main-list-title {
-  position: absolute;
-  width: 50%;
-  height: 10%;
-  font-size: 50px;
-  top: 1%;
-  left: 2%;
-  display: inline-block;
-  font-weight: 600;
-  color: #ff5100;
+.link-dec {
+  text-decoration: none;
 }
-
-.main-list-title::after {
-  content: "";
-  height: 3px;
-  position: absolute;
-  top: 50%;
-  left: 30%;
-  display: inline-block;
-  z-index: 0;
-  background-color: black;
-  -webkit-animation: ke-before-border 2s both;
-          animation: ke-before-border 2s both;
-}
-
-.sub-list-title {
-  position: absolute;
-  width: 50%;
-  font-size: 20px;
-  top: 11%;
-  left: 4%;
-  display: inline-block;
-  font-weight: 600;
-  color: black;
-}
-/*# sourceMappingURL=chat_show.css.map */
+/*# sourceMappingURL=sign_up.css.map */

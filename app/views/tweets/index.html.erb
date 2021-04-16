@@ -87,10 +87,18 @@
                                 <% end %>
                             </div>
                               <div class="list-name">
-                                <%= link_to user_path(tweet.user_id) do%>
-                                <%= tweet.user.name %>
+                                <% if user_signed_in? && tweet.user_id == current_user.id %>
+                                  <%= link_to user_path(tweet.user_id) do%>
+                                  <%= "自分" %>
+                                  <% end %>
+                                  <span class="name-sub">の投稿</span> 
+                                <% else %>
+                                  <%= link_to user_path(tweet.user_id) do%>
+                                  <%= tweet.user.name %>
+                                  <% end %>
+                                  <span class="name-sub">さんの投稿</span> 
                                 <% end %>
-                                <span class="name-sub">さんの投稿</span> 
+                           
                               </div>
                               <div class="list-time">
                                 <%= tweet.created_at.strftime('%C%y-%m-%d ') %>
@@ -131,10 +139,17 @@
                                     <% end %>
                                 </div>
                                 <div class="list-name">
-                                    <%= link_to user_path(tweet.user_id) do%>
-                                    <%= tweet.user.name %>
+                                    <% if user_signed_in? && tweet.user_id == current_user.id %>
+                                      <%= link_to user_path(tweet.user_id) do%>
+                                      <%= "自分" %>
+                                      <% end %>
+                                      <span class="name-sub">の投稿</span> 
+                                    <% else %>
+                                      <%= link_to user_path(tweet.user_id) do%>
+                                      <%= tweet.user.name %>
+                                      <% end %>
+                                      <span class="name-sub">さんの投稿</span> 
                                     <% end %>
-                                    <span class="name-sub">さんの投稿</span> 
                                 </div>
                                 <div class="list-time">
                                   <%= tweet.created_at.strftime('%C%y-%m-%d ') %>

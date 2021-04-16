@@ -24,12 +24,21 @@
                </div>
                <div class="header-right">
                   <div class="header-link">
-                      <%= link_to  new_tweet_path do %>
-                      <span>log in</span>
-                      <% end %>
-                      <%= link_to  new_user_registration_path do %>
-                      <span>log in</span>
-                      <% end %>
+                      <% if user_signed_in? %>
+                          <%= link_to destroy_user_session_path, method: :delete do %>
+                          <span>Log Out</span>
+                          <% end %>
+                          <%= link_to root_path   do %>
+                          <span>Top Page</span>
+                          <% end %>
+                    <% else %>
+                        <%= link_to   new_user_session_path do %>
+                          <span>Log In</span>
+                          <% end %>
+                          <%= link_to  new_user_registration_path do %>
+                          <span>Sign Up</span>
+                          <% end %>
+                   <% end %>   
                   </div>
                 
                   <button class="mobile-menu__btn">
@@ -69,10 +78,17 @@
                          
                         </div>
                             <div class="list-name">
-                              <%= link_to root_path do%>
+                            <% if user_signed_in? && tweet.user_id == current_user.id %>
+                               <%= link_to user_path(tweet.user_id) do%>
+                              <%= "自分" %>
+                              <% end %>
+                              <span class="name-sub">の投稿</span> 
+                            <% else %>
+                              <%= link_to user_path(tweet.user_id) do%>
                               <%= tweet.user.name %>
                               <% end %>
                               <span class="name-sub">さんの投稿</span> 
+                            <% end %>
                             </div>
                             <div class="list-time">
                                <%= tweet.created_at.strftime('%C%y-%m-%d ') %>
@@ -123,6 +139,6 @@
           </nav>
       </div>
   </div>
-  <%= javascript_pack_tag 'main.js' %>
+  <%= javascript_pack_tag 'mobile.js' %>
 </body>
 </html>

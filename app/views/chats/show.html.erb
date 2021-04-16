@@ -49,47 +49,52 @@
                           </div>
                           <div class="message"></div>
                         <% @chats.each do |chat| %>
-                          <% if chat.user_id == current_user.id %> 
+                          <% if chat.user_id == current_user.id%> 
                           <div class="i-chat-area">
-                              <div class="i-chat-tweet">
-                                <p class="i-chat-text"><%=  safe_join(chat.message.split("\n"),tag(:br)) %></p>
-                                <p class="i-chat-time" ><%= chat.created_at.strftime('%C%y-%m-%d %k:%M') %></p>
-                              </div>
-                              <div class="i-chat-image">
-                                <% if  chat.image.attached? %>
-                                    <% unless chat.image.content_type.include?('image/') %>
-                                        <video src= "<%= rails_blob_path(chat.image) %>" type='video/mp4' class="y-image" controls disablepictureinpicture="false" controlslist="nodownload"></video>
-                                        <p class="i-chat-time" ><%= chat.image.created_at.strftime('%C%y-%m-%d %k:%M') %></p>
-                                      <% else %>
-                                        <%= link_to chat.image ,"data-lightbox" => chat.image do %> 
-                                        <%= image_tag chat.image,class:"y-image", height: '250', :style=>"width:300;"%> 
+                              　<% if chat.message != "" %>
+                                    <div class="i-chat-tweet">
+                                      
+                                      <p class="i-chat-text"><%=  safe_join(chat.message.split("\n"),tag(:br)) %></p>
+                                      <p class="i-chat-time" ><%= chat.created_at.strftime('%C%y-%m-%d %k:%M') %></p>
+                                    </div>
+                              <% end %>
+                              <% if  chat.image.attached? %>
+                                  <div class="i-chat-image">
+                                        <% unless chat.image.content_type.include?('image/') %>
+                                            <video src= "<%= rails_blob_path(chat.image) %>" type='video/mp4' class="y-image" controls disablepictureinpicture="false" controlslist="nodownload"></video>
+                                            <p class="i-chat-time" ><%= chat.image.created_at.strftime('%C%y-%m-%d %k:%M') %></p>
+                                          <% else %>
+                                            <%= link_to chat.image ,"data-lightbox" => chat.image do %> 
+                                            <%= image_tag chat.image,class:"y-image", height: '250', :style=>"width:300;"%> 
+                                            <% end %>
+                                            <p class="i-chat-time" ><%= chat.image.created_at.strftime('%C%y-%m-%d %k:%M') %></p>
                                         <% end %>
-                                        <p class="i-chat-time" ><%= chat.image.created_at.strftime('%C%y-%m-%d %k:%M') %></p>
-                                    <% end %>
-                                <% end %>
-                                
-                              </div>
+                                    
+                                  </div>
+                              <% end %>
                           </div>
                           <% else %>
-                          <div class="y-chat-area" >
-                              <div class="y-chat-tweet">
-                                <p class="y-chat-text" ><%=  safe_join(chat.message.split("\n"),tag(:br))%></p>
-                                <p class="y-chat-time" ><%= chat.created_at.strftime('%C%y-%m-%d %k:%M') %></p>
-                              </div>
-                              <div class="y-chat-image">
+                            <div class="y-chat-area" >
+                                <% if chat.message != "" %>
+                                      <div class="y-chat-tweet">
+                                        <p class="y-chat-text" ><%=  safe_join(chat.message.split("\n"),tag(:br))%></p>
+                                        <p class="y-chat-time" ><%= chat.created_at.strftime('%C%y-%m-%d %k:%M') %></p>
+                                     </div>
+                                  <% end %>
                                 <% if  chat.image.attached? %>
-                                    <% unless chat.image.content_type.include?('image/') %>
-                                        <video src= "<%= rails_blob_path(chat.image) %>" type='video/mp4' class="y-image" controls disablepictureinpicture="false" controlslist="nodownload"></video>
-                                        <p class="i-chat-time" ><%= chat.image.created_at.strftime('%C%y-%m-%d %k:%M') %></p>
-                                      <% else %>
-                                        <%= link_to chat.image ,"data-lightbox" => chat.image do %> 
-                                        <%= image_tag chat.image,class:"y-image", height: '250', :style=>"width:300;"%> 
+                                  <div class="y-chat-image">
+                                        <% unless chat.image.content_type.include?('image/') %>
+                                            <video src= "<%= rails_blob_path(chat.image) %>" type='video/mp4' class="y-image" controls disablepictureinpicture="false" controlslist="nodownload"></video>
+                                            <p class="i-chat-time" ><%= chat.image.created_at.strftime('%C%y-%m-%d %k:%M') %></p>
+                                          <% else %>
+                                            <%= link_to chat.image ,"data-lightbox" => chat.image do %> 
+                                            <%= image_tag chat.image,class:"y-image", height: '250', :style=>"width:300;"%> 
+                                            <% end %>
+                                            <p class="i-chat-time" ><%= chat.image.created_at.strftime('%C%y-%m-%d %k:%M') %></p>
                                         <% end %>
-                                        <p class="i-chat-time" ><%= chat.image.created_at.strftime('%C%y-%m-%d %k:%M') %></p>
-                                    <% end %>
+                                  </div>
                                 <% end %>
-                              </div>
-                          </div>
+                            </div>
                           <% end %>
                         <% end %>
                       </div>
@@ -104,7 +109,7 @@
                             <%= f.file_field :image,class:"message-img" ,id:"img-btn" %>   
                         </div>
                         <%= f.label "検索" ,for:"submit_btn",class:"btn_label" do%>
-                           <i class="fas fa-play"></i>
+                           <i class="fas fa-paper-plane"></i>
                           <% end %>
                           
                           <%= f.submit 'Search',class:"pen-btn",id:"submit_btn" %>
@@ -156,7 +161,7 @@
             </div>
    
   </div>
-  <%= javascript_pack_tag 'main.js' %>
+  <%= javascript_pack_tag 'mobile.js' %>
 </body> 
  
     
