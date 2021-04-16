@@ -51,22 +51,63 @@
                         <% @chats.each do |chat| %>
                           <% if chat.user_id == current_user.id %> 
                           <div class="i-chat-area">
-                                <p class="i-chat" style="text-align: left;"><%=  safe_join(chat.message.split("\n"),tag(:br)) %></p>
+                              <div class="i-chat-tweet">
+                                <p class="i-chat-text"><%=  safe_join(chat.message.split("\n"),tag(:br)) %></p>
+                                <p class="i-chat-time" ><%= chat.created_at.strftime('%C%y-%m-%d %k:%M') %></p>
+                              </div>
+                              <div class="i-chat-image">
+                                <% if  chat.image.attached? %>
+                                    <% unless chat.image.content_type.include?('image/') %>
+                                        <video src= "<%= rails_blob_path(chat.image) %>" type='video/mp4' class="y-image" controls disablepictureinpicture="false" controlslist="nodownload"></video>
+                                        <p class="i-chat-time" ><%= chat.image.created_at.strftime('%C%y-%m-%d %k:%M') %></p>
+                                      <% else %>
+                                        <%= link_to chat.image ,"data-lightbox" => chat.image do %> 
+                                        <%= image_tag chat.image,class:"y-image", height: '250', :style=>"width:300;"%> 
+                                        <% end %>
+                                        <p class="i-chat-time" ><%= chat.image.created_at.strftime('%C%y-%m-%d %k:%M') %></p>
+                                    <% end %>
+                                <% end %>
+                                
+                              </div>
                           </div>
                           <% else %>
-                          <div class="y-chat-area">
-                                <p class="y-chat" style="text-align: right;"><%=  safe_join(chat.message.split("\n"),tag(:br))%></p>
-                                <p class="y-chat" style="text-align:right;"><%= chat.created_at %></p>
+                          <div class="y-chat-area" >
+                              <div class="y-chat-tweet">
+                                <p class="y-chat-text" ><%=  safe_join(chat.message.split("\n"),tag(:br))%></p>
+                                <p class="y-chat-time" ><%= chat.created_at.strftime('%C%y-%m-%d %k:%M') %></p>
+                              </div>
+                              <div class="y-chat-image">
+                                <% if  chat.image.attached? %>
+                                    <% unless chat.image.content_type.include?('image/') %>
+                                        <video src= "<%= rails_blob_path(chat.image) %>" type='video/mp4' class="y-image" controls disablepictureinpicture="false" controlslist="nodownload"></video>
+                                        <p class="i-chat-time" ><%= chat.image.created_at.strftime('%C%y-%m-%d %k:%M') %></p>
+                                      <% else %>
+                                        <%= link_to chat.image ,"data-lightbox" => chat.image do %> 
+                                        <%= image_tag chat.image,class:"y-image", height: '250', :style=>"width:300;"%> 
+                                        <% end %>
+                                        <p class="i-chat-time" ><%= chat.image.created_at.strftime('%C%y-%m-%d %k:%M') %></p>
+                                    <% end %>
+                                <% end %>
+                              </div>
                           </div>
                           <% end %>
                         <% end %>
                       </div>
 
-                      <%= form_with model: @chat do |f| %>
-                        <%= f.text_area :message,class:"message-form" %>
+                      <%= form_with model: @chat,class:"form-area" do |f| %>
+                        <%= f.text_field :message,class:"message-form",placeholder:"メッセージを入力してください" %>
                         <%= f.hidden_field :room_id %>
-                        <%= f.file_field :image,class:"message-img" %>
-                        <%= f.submit "送信" %>
+                        <div class="img-form">
+                            <%= f.label "検索" ,for:"img-btn",class:"img-label" do%>
+                                <i class="far fa-images"></i>
+                            <% end %>
+                            <%= f.file_field :image,class:"message-img" ,id:"img-btn" %>   
+                        </div>
+                        <%= f.label "検索" ,for:"submit_btn",class:"btn_label" do%>
+                           <i class="fas fa-play"></i>
+                          <% end %>
+                          
+                          <%= f.submit 'Search',class:"pen-btn",id:"submit_btn" %>
                       <% end %>
                   
               </div>

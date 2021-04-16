@@ -17,7 +17,6 @@
   <div id="global-container">
         <div id="container">
           <div class="mobile-menu__cover"></div>
-          
             <header class="header-menu">
                <div class="header_left">
                  <%=link_to root_path,class:"app-title" do%>
@@ -41,6 +40,23 @@
               </div>
             </header>
             <div class="top-wrapper">
+                      　<% if @user.id == current_user.id %>
+                  <div class="chat-link">
+                    <p>Chat Member</p>
+                    <div class="chat-mem">
+                        
+                          <% @room.each do |room| %>
+                          <% if room.user.name != current_user.name  %>
+                         <p class="mem-name">
+                            <%= link_to user_path(room.user.id) do%>
+                              <%= "#{room.user.name}さん"%>
+                              <% end %>
+                         </p> 
+                          <% end %>
+                        <% end %>
+                    </div>
+                  </div>
+                      <% end %> 
               <span class="main-list-title">My Page</span>
               <span class="sub-list-title"><%="#{@user.name}さん"%></span>
               <%= link_to  edit_user_path(@user.id),class:"edit-btn" do%>
@@ -48,7 +64,10 @@
                 <span class="sub-edit-title">編集</span>
               <% end %>
               <% if current_user != @user %>
-                <%= link_to 'チャットする', chat_path(@user.id) %>
+                <%= link_to chat_path(@user.id),class:"do-chat" do%>
+                <span class="main-chat-title">Chat</span>
+                <span class="sub-chat-title">チャット</span>
+                <% end %>
               <% end %>
               <div class="intro-area">
                  <span class="main-intro-title">Introduction</span>
