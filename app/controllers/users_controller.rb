@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!,except: [:show]
   def show
     @user = User.find(params[:id])
     @tweets = @user.tweets.order("tweets.created_at DESC").paginate(page: params[:page], per_page: 8)
@@ -8,6 +9,9 @@ class UsersController < ApplicationController
   end
   def edit
     @user = User.find(params[:id])
+    unless user_signed_in? && current_user.id == @user.id
+      redirect_to root_path
+    end
   end
   def update
     @user = User.find(params[:id])

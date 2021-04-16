@@ -24,8 +24,13 @@
                </div>
                <div class="header-right">
                   <div class="header-link">
-                      <a href="#">sign up</a>
-                      <a href="#">log in</a>
+                          <%= link_to destroy_user_session_path, method: :delete do %>
+                          <span>Log Out</span>
+                          <% end %>
+                          <%= link_to root_path   do %>
+                          <span>Top Page</span>
+                          <% end %>
+                      
                   </div>
                 
                   <button class="mobile-menu__btn">

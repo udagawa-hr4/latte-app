@@ -3,6 +3,36 @@ body {
   margin: 0;
 }
 
+.field_with_errors {
+  display: contents;
+}
+
+.error-message, .login-flash-message {
+  position: absolute;
+  right: 30%;
+  top: 5%;
+  z-index: 100;
+  color: white;
+  width: 17%;
+  height: 30%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  line-height: 1.8em;
+  font-size: 14px;
+  font-weight: 600;
+}
+
 #global-container {
   width: 100vw;
   height: 100vh;

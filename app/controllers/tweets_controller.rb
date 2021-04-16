@@ -1,4 +1,5 @@
 class TweetsController < ApplicationController
+  before_action :authenticate_user!,except: [:index,:show,:list,:search,:best]
   def index
     @tweets = Tweet.includes(:user).order("created_at DESC").first(6)
     @tweet = Tweet.includes(:user).order(impressions_count: 'DESC').first(6)
@@ -34,6 +35,9 @@ class TweetsController < ApplicationController
   end
   def edit
     @tweet = Tweet.find(params[:id])
+    unless user_signed_in? && current_user.id == @post.user.id
+      redirect_to root_path
+    end
   end
   def destroy
     @tweet= Tweet.find(params[:id])

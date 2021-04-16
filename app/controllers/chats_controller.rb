@@ -1,5 +1,6 @@
 class ChatsController < ApplicationController
   include Rails.application.routes.url_helpers
+  before_action :authenticate_user!,only: [:show]
   def show
     @user = User.find(params[:id])
     #ログインしているユーザーのidが入ったroom_idのみを配列で取得（該当するroom_idが複数でも全て取得）
@@ -23,6 +24,9 @@ class ChatsController < ApplicationController
     @chats = @room.chats.order("created_at DESC")
     #@room.idを代入したChat.newを用意しておく(message送信時のform用)
     @chat = Chat.new(room_id: @room.id)
+    # unless @chats.where(user_id: current_user.id)
+    #   redirect_to root_path  
+    # end
   end
 
   def create

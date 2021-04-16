@@ -68,9 +68,12 @@
                       <% end %> 
               <span class="main-list-title">My Page</span>
               <span class="sub-list-title"><%="#{@user.name}さん"%></span>
+              <% if @user.id == current_user.id %>
+                
               <%= link_to  edit_user_path(@user.id),class:"edit-btn" do%>
                 <span class="main-edit-title">Edit</span>
                 <span class="sub-edit-title">編集</span>
+              <% end %>
               <% end %>
               <% if current_user != @user %>
                 <%= link_to chat_path(@user.id),class:"do-chat" do%>
