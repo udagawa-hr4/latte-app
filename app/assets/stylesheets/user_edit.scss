@@ -25,7 +25,7 @@ body{
     width: 100vw;
     height:100vh;
     transition: all 0.5s;
-    background-image: url(/assets/coffee-5037804_1280.jpg);
+    background-image: url(/assets/coffee-983953_1280.jpg);
     overflow: hidden;
     z-index: 0;
     background-size: cover;
@@ -119,7 +119,7 @@ body{
             left: 28%;
             display: inline-block;
             z-index: 0;
-            background-color: $cBlack;
+            background-color: $cWhite;
             animation: ke-before-border 2s both;
           }
         }
@@ -141,6 +141,7 @@ body{
           width: 90%;
           height:80% ;
           top: 18%;
+          color: white;
           & .form_all{
             position: absolute;
             width: 100%;
@@ -179,7 +180,7 @@ body{
                     left: 28%;
                     display: inline-block;
                     z-index: 0;
-                    background-color: $cBlack;
+                    background-color: $cWhite;
                     animation: ke-before-border2 2s both;
                    }
                   }
@@ -205,7 +206,8 @@ body{
                 text-shadow: 2px 2px 2px gray;
                 background-color: rgba(233, 231, 231,0);
                 border-radius: 10px;
-                border: 2px solid black;
+                border: 2px solid gray;
+                color: white;
                     &::placeholder{
                       font-size: 18px;
                       color: rgba(255, 255, 255, 0.603);
@@ -292,7 +294,7 @@ body{
                     left: 35%;
                     display: inline-block;
                     z-index: 0;
-                    background-color: $cBlack;
+                    background-color: $cWhite;
                     animation: ke-before-border2 2s both;
                   }
                 }
@@ -309,7 +311,7 @@ body{
                 height: 70%;
                 top: 22%;
                 left: 10%;
-                border: 2px solid black;
+                border: 2px solid gray;
                 border-radius: 10px;
                 resize: none;
                 padding-left: 1%;
@@ -317,6 +319,7 @@ body{
                 font-weight: 600;
                 outline: none;
                 background-color: rgba(255, 255, 255, 0);
+                color: $cWhite;
               }
             }
             

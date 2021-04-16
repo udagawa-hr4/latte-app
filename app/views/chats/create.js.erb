@@ -1,5 +1,5 @@
-$('.message').prepend("<div class='i-chat-aj'><p class='i-chat-text'><%= safe_join(@chat.message.split("\n"),tag(:br)) %></p><p class='i-chat-time'><%= @chat.created_at.strftime('%C%y-%m-%d %k:%M') %></p></div>");
 $('.message').prepend('<div class="i-chat-image"><% if @chat.image.attached? %><% unless @chat.image.content_type.include?("image/") %><%= video_tag(@image,type:"video/mp4", controls:true,disablepictureinpicture:false,controlslist:"nodownload",class:"img-tag") %><p class="i-chat-time" ><%= @chat.image.created_at.strftime('%C%y-%m-%d %k:%M') %></p><% else %><%= link_to(@image, "data-lightbox" => @image) do %> <%= image_tag(@image,class:"img-tag", height: '250', :style=>"width:300;")%><% end %><p class="i-chat-time" ><%= @chat.image.created_at.strftime('%C%y-%m-%d %k:%M') %></p><% end %><% end %></div>');
+$('.message').prepend(" <% if @chat.message != '' %><div class='i-chat-aj'><p class='i-chat-text'><%= safe_join(@chat.message.split("\n"),tag(:br)) %></p><p class='i-chat-time'><%= @chat.created_at.strftime('%C%y-%m-%d %k:%M') %></p></div><% end %>");
 $('.message-form').val("")
 $('.message-img').val("")
 

@@ -22,12 +22,21 @@
                </div>
                <div class="header-right">
                   <div class="header-link">
-                      <%= link_to   root_path do %>
+                      <% if user_signed_in? %>
+                          <%= link_to destroy_user_session_path, method: :delete do %>
+                          <span>Log Out</span>
+                          <% end %>
+                          <%= link_to root_path   do %>
+                          <span>Top Page</span>
+                          <% end %>
+                    <% else %>
+                        <%= link_to   root_path do %>
                           <span>Top Page</span>
                           <% end %>
                           <%= link_to  new_user_registration_path do %>
                           <span>Sign Up</span>
                           <% end %>
+                   <% end %>   
                   </div>
                 
                   <button class="mobile-menu__btn">
@@ -108,7 +117,7 @@
            </div>
     
   </div>
-  <%= javascript_pack_tag 'main.js' %>
+  <%= javascript_pack_tag 'mobile.js' %>
 </body>  
 
 </html>
