@@ -47,10 +47,13 @@
               </div>
             </header>
           <div class="top-wrapper">
+           <div class="error-message">
+              <%= render "devise/shared/error_messages", resource: resource %>
+            </div>
              <span class="form-title1">Sign</span>
              <span class="form-title2">up</span>
              <div class="login-form">
-                <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
                     <div class="field-name">
                       <%= f.text_field :name, autofocus: true, autocomplete: "name",class:"name-form",placeholder:"name" %>
                     </div>
