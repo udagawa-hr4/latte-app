@@ -20,7 +20,7 @@ class TweetsController < ApplicationController
     @tweet = Tweet.find(params[:id])
     @comment = Comment.new
     @comments = @tweet.comments
-    # impressionist(@tweet, nil, unique: [:session_hash.to_s])
+    # impressionist(@tweet, nil, unique: [:session_hash.to_s]) 自分でPV数を増やせるようにするときはこっちを使う。
     impressionist(@tweet, nil, unique: [:impressionable_id, :ip_address])
 
   end
@@ -35,7 +35,7 @@ class TweetsController < ApplicationController
   end
   def edit
     @tweet = Tweet.find(params[:id])
-    unless user_signed_in? && current_user.id == @post.user.id
+    unless user_signed_in? && current_user.id == @tweet.user.id
       redirect_to root_path
     end
   end

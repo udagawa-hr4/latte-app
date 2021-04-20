@@ -2,31 +2,29 @@ class ChatsController < ApplicationController
   include Rails.application.routes.url_helpers
   before_action :authenticate_user!,only: [:show]
   def show
-    @user = User.find(params[:id])
-    #ログインしているユーザーのidが入ったroom_idのみを配列で取得（該当するroom_idが複数でも全て取得）
-    rooms = current_user.user_rooms.pluck(:room_id)
-    #user_idが@user　且つ　room_idが上で取得したrooms配列の中にある数値のもののみ取得(1個または0個のはず)
-    user_rooms = UserRoom.find_by(user_id: @user.id, room_id: rooms)
+   if User.exists?(params[:id])
+       @user = User.find(params[:id])
+       if @user.id != current_user.id
+        rooms = current_user.user_rooms.pluck(:room_id)
+        user_rooms = UserRoom.find_by(user_id: @user.id, room_id: rooms)
 
-    if user_rooms.nil? #上記で取得できなかった場合の処理
-      #新しいroomを作成して保存
-      @room = Room.new
-      @room.save
-      #@room.idと@user.idをUserRoomのカラムに保存(１レコード)
-      UserRoom.create(user_id: @user.id, room_id: @room.id)
-      #@room.idとcurrent_user.idをUserRoomのカラムに保存(１レコード)
-      UserRoom.create(user_id: current_user.id, room_id: @room.id)
+        if user_rooms.nil? 
+          @room = Room.new
+          @room.save
+          UserRoom.create(user_id: @user.id, room_id: @room.id)
+          UserRoom.create(user_id: current_user.id, room_id: @room.id)
+        else
+          @room = user_rooms.room
+        end
+          @chats = @room.chats.order("created_at DESC")
+          @chat = Chat.new(room_id: @room.id)
+      else
+        redirect_to root_path
+      end
     else
-      #取得している場合は、user_roomsに紐づいているroomテーブルのレコードを@roomに代入
-      @room = user_rooms.room
-    end
-    #if文の中で定義した@roomに紐づくchatsテーブルのレコードを代入
-    @chats = @room.chats.order("created_at DESC")
-    #@room.idを代入したChat.newを用意しておく(message送信時のform用)
-    @chat = Chat.new(room_id: @room.id)
-    # unless @chats.where(user_id: current_user.id)
-    #   redirect_to root_path  
-    # end
+      redirect_to root_path
+    end   
+    
   end
 
   def create

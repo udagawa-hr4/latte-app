@@ -172,7 +172,7 @@ li {
   width: 40%;
   height: 35%;
   background-color: #4a5252;
-  top: 51.5%;
+  top: 57.5%;
   left: 5%;
 }
 
@@ -763,7 +763,7 @@ li {
 }
 
 .edit-btn {
-  position: relative;
+  position: absolute;
   display: inline-block;
   width: 8%;
   height: 6%;

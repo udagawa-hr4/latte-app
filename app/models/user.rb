@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :rooms, through: :user_rooms,dependent: :destroy
   has_many :tweets,dependent: :destroy
   has_many :comments,dependent: :destroy
-  validates :name,presence: true
+  validates :name,presence: true,length: { in: 1..20}
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end

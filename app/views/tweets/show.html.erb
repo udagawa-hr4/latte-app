@@ -55,9 +55,12 @@
               
               <span class="main-img-title">Images</span>
               <span class="sub-img-title"> 写真・動画</span>
+              <% if user_signed_in? && @tweet.user_id == current_user.id%>
+                
               <%= link_to edit_tweet_path(@tweet.id),class:"edit-btn" do %>
                 <span class="main-edit-title">Edit</span>
                 <span class="sub-edit-title">編集</span>
+              <% end %>
               <% end %>
                 <ul class="img-ul">
                   <% @tweet.images.each do |tweet| %>
