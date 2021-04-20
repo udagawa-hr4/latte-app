@@ -94,7 +94,7 @@
                                <%= tweet.created_at.strftime('%C%y-%m-%d ') %>
                             </div>
                             <div class="list-title">
-                              <%= link_to root_path do%>
+                              <%= link_to tweet_path(tweet.id) do%>
                               <%= tweet.title %>
                               <% end %>
                             </div>
