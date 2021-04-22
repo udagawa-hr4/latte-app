@@ -2,5 +2,3 @@ $('.message').prepend('<div class="i-chat-image"><% if @chat.image.attached? %><
 $('.message').prepend(" <% if @chat.message != '' %><div class='i-chat-aj'><p class='i-chat-text'><%= safe_join(@chat.message.split("\n"),tag(:br)) %></p><p class='i-chat-time'><%= @chat.created_at.strftime('%C%y-%m-%d %k:%M') %></p></div><% end %>");
 $('.message-form').val("")
 $('.message-img').val("")
-
-
